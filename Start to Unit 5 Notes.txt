@@ -1,0 +1,1634 @@
+Unit 5
+
+Introducing the Display Style:
+
+HTML elements are classified into:
+	Block elements like paragraphs or headings
+	Inline elements like emphasized text or inline images
+
+Types of display:
+	Block
+		Displayed as a block
+		When you display in a block, the paragraphs will shift down and begin a new line no matter what
+		By default the size is 100% width
+	Table
+		Displayed as a web table
+	Inline
+		Displayed in-line within a block
+		Inline elements will be displayed side by side
+		Height and width properties have no effect on the elements
+	Inline-block
+		Treated as a block placed in-line with another block
+		Additionally this styling allows for adjustment of height and width of the elements
+			Don’t set values for default spacing
+	Run-in
+		Displayed as a block unless its next sibling is also a block, in this case it gets displayed in-line, essentially combining the two blocks into one
+	Inherit
+		Inherits the display property of the parent element
+	List-item
+		Displayed asa list item along with a bullet marker
+	None
+		Doesn’t display at all
+
+Reset Stylesheets:
+
+Reset Style Sheet
+	Supersedes a browser’s default styles and provides a consistent starting point for the page design
+	The first style rule in a sheet is the display property used to display HTML5 structural elements
+
+Exploring Page layout Designs:
+
+Web page layouts fall into 3 categories
+	Fixed layout
+		Size of the page and page elements are fixed, usually using pixels as the unit
+	Fluid layout
+		The width of the page elements are set as a percent of the available screen width
+	Elastic layout
+		Images and text are always sized in proportion to each other in em units
+
+Responsive Design:
+	The layout and design of a page changes in response to the device that’s rendering the page
+	You may want the design to be fluid on a computer so the windows adjust to the size of the browser but fixed on a phone so the images don’t get squished and are still visible
+
+Working with Width and Height:
+
+The width and height of an element are set using the following properties:
+	width:valueUnits;
+	height:valueUnits;
+
+You also want to set limits for the values using the following properties:
+	max-width:valueUnits;
+	min-height:valueUnits;
+
+Centering a Block Element:
+
+Block elements can be centered horizontally within their parent element by setting both the left and right margins to auto
+	margin-left: auto;
+	margin-right: auto;
+
+Vertical Centering:
+
+Centering an eminent vertically can be accomplished by displaying the parent element as a table cell and setting the “vertical-align” property to “middle”
+	For example:
+		To vertically center the following h1 heading within the div element:
+			HTML:
+				<div>
+					<h1>Title</h1>
+			CSS:
+				div{
+					height: 40px;
+					display: table-cell;
+					vertical-align: middle;
+				{
+
+Floating Page Content
+
+Floating
+	An element takes it out of position and places it along the left or right side of its parent element
+
+How to float an element:
+	float: position;
+		Position can equal none, left, or right
+
+For elements to be placed within a single row, the combined width o the element cannot exceed the total width of their parent elements
+
+Clearing a float
+
+To ensure that an element is always displayed below floated elements use:
+	clear: position;
+		position can equal left, right, both, or none
+
+Refining a Floated Layout:
+
+Content box model - the width property refers to the width of an element content only
+	Additional space includes padding or borders
+
+Border box model - The width property is based on the sum of the content padding and border spaces
+	Additional space taken up by the padding and border subtracted from space given to the content
+
+The layout model can be chosen using this:
+	box-sizing: type;
+		type can equal content-box, border-box, or inherit
+
+Working with container collapse
+
+Container collapse
+	An empty container with no content
+	Elements within the container are floated
+
+Use the “after” pseudo-element to add a placeholder element after the footer
+	Ex:
+		Selector::after{
+			clear: both;
+			content: “”;
+			display: table;
+		}
+
+Overview of Grid-Based Layouts:
+
+Rows and Columns form a grid
+	The number of rows is based on the page content
+	The number of columns is based on the number that provides the most flexibility in laying out the page content
+
+For a grid layout:
+	Columns are typically 12 max and rows can be as many as required for the page
+
+Advantages  of using a grid:
+	Grids add order to the presentation of page content
+	A consistent logical design gives readers the confidence to find the information they seek
+	It’s easily accessible for users with disabilities and special needs
+	It increases the development speed with a systematic framework for the page layout
+
+Fixed and Fluid Grids:
+
+Fixed grids:
+	Every column has a fixed position
+	Widths of the columns and margins are specified in pixels
+
+Fluid grids:
+	Provide more support across different devices with different screen sizes
+	Column width is expressed in percentages
+
+CSS Frameworks:
+
+A framework is a software package that provides a library of tools to design a website
+	Includes a style sheet for grid layouts and built-in scripts to provide support for a variety of browsers and devices
+
+Some popular CSS frameworks include:
+	Bootstrap
+	YAML4
+	960 Grid System
+	Foundation 3
+
+Setting up a Grid:
+A grid layout is based on rows of floating elements
+Each floating element constitutes a column
+The set of elements floating side-by-side establishes a row
+Many grid layouts use the div (or division) element to mark distinct rows and columns of the grid
+
+Designing the Grid Columns:
+
+Every grid column needs to be floated within its row
+Grid columns are placed within a div element having the general class name
+	class=“col-numerator-denominator”
+		numerator-denominator provides the fractional width of the column (3/4 would be 3-4)
+
+Designing the Grid Rows:
+
+Grid rows contain floating columns
+Since a grid row starts a new line within a page, it should only be displayed when both margins are clear of previously floated columns
+
+Outlining a Grid:
+
+Outlines
+	Lines drawn around an element, enclosing the element content, padding, and border spaces
+	Ex:
+outline-width: value;
+Specifies line width
+Thin medium or thick
+outline-color: color;
+Specifies the color
+outline-style: style;
+Specifies the design of a line
+Properties of style are: solid, double, dotted, dashed, groove, inset, ridge, or outset
+	
+To create a grid display without the use of div elements use the following grid-based properties:
+Selector{
+Display: grid;
+Grid-template-rows: track-list;
+Grid-template-columns: track-list;
+}
+
+“Fr” unit
+	Represents the fraction fo available space left on the grifter all other rows and columns have attained their max allowed size
+
+Assigning Content to Grid Cells
+
+Elements in a CSS grid are placed within a grid cell at the intersection of a specified row and column
+By default, all of the specified elements are placed in the grid cell located at the intersection of the first row and first column
+
+To place an eminent in a different cell use:
+	Grid-row-start: integer;
+	Grid-row-end: integer;
+	Grid-column-start: integer;
+	Grid-column-end: integer;
+		Where integer defines the starting and ending row or column that contains the content
+
+Layout with Positioning Styles:
+
+Relative positioning is used to shift an element from its default position in the document flow
+
+Absolute positioning is used to place an element at specified coordinates within a container element
+
+CSS Positioning Styles:
+
+To place an element at a specific position within its container use:
+	position: type;
+	top: value;
+	left: value;
+	bottom: value;
+	right: value;
+		“type” states the kind of positioning that is applied (relative or absolute)
+
+Top and left values can be expressed using any CSS units
+
+Static positioning
+	The element is placed where it would have fallen naturally within the flow of the document
+
+Relative positioning
+	The element is moved out of its normal position in the document flow
+
+Absolute positioning
+	The element is placed at specific coordinates within containers
+
+Handling Overflow:
+
+Overflow
+	Controls a browser that handles excess content
+		overflow: type;
+			type stands for hidden, scroll, or auto
+
+Visible
+	Instructs browsers to increase the size of an element to fix overflow contents
+
+The overflow property determines how the browser should handle content that exceeds the space allotted to the element
+
+When overflow is set to auto, the browser automatically displays scroll bars for overflowed content
+
+Hidden
+	Keeps an element at the specified height and width but cuts off excess content
+
+Scroll
+	Keeps an element at the specified dimensions, but adds horizontal and vertical scroll bars
+Auto
+	Keeps an element at the specified size, adding scroll bars when they’re needed
+
+Visible - Extends everything
+Hidden - Cuts off where page is no longer visible
+Scroll - Set vertical or horizontal bar
+Auto - Shows bar if required
+
+Fixed and Inherited Positioning:
+
+Fixed positioning
+	Fixes an object within a browser window to avoid its movement
+
+Inherited positioning
+	Allows an element to inherit the position value of its parent element
+
+Clipping (cropping) and Element:
+
+Clip - defines a rectangular region through which an element’s content can be viewed
+
+Anything that lies outside the boundary of the rectangle is hidden
+
+The syntax of the clip properties is the following:
+	clip: rect(top, right, bottom, left);
+
+Stacking Elements:
+
+By default, elements that are loaded later by a bowser are displayed on top of elements that loaded earlier
+
+An element’s Z index value determines its position relative only to other elements that share out 
+
+
+Unit 4
+Getting Started with CSS3
+
+Day 1 - Unit 4.1
+
+The appearance of the page is determined by one or more style sheets written in the Cascading Style Sheets (CSS3) Language.
+
+Latest version of CSS is CSS3
+
+CSS3 is built upon several modules where each module is focused on a separate design topic
+
+Browser Styles or user agent styles are styles built into the browser
+
+User-Defined styles are styles defined by a user based on the configuration setting of the user’s browser
+
+External Styles are styles created by a website author, placed within a CSS file and linked to the page
+
+Embedded Styles are styles added to the head of an HTML document
+	-Embedded style sheets are inserted directly into the HTML file as metadata by adding the following element to the document head
+
+Inline Styles are styles added as element attributes within an HTML document and applied to only that particular element
+	-Styles applied directly to specific elements using the following style attribute
+
+General CSS Syntax rules:
+Ex1:
+	selector{
+		property 1: valueunits;
+		property 1: valueunits;
+	}
+
+Ex2:
+	footer{
+		border: 23px;
+		padding: 0%;
+	}
+
+Konqueror:
+	Vendor prefix: -khtml-
+	Rendering Engine: KHTML
+
+Firefox, Camino:
+	Vendor prefix: -moz-
+	Rendering Engine: Mozilla
+
+Internet Explorer:
+	Vendor prefix: -ms-
+	Rendering Engine: Trident
+
+Opera, Nintendo Wii Browser:
+	Vendor prefix: -o-
+	Rendering Engine: Presto
+
+Style Specificity and Precedence:
+	The more specific style rule has precedence over the more general style rule
+	Specificity is an issue wen two or more styles conflict
+	If two rules have equal specificity and equal importance, then the one that is defined last has precedence
+
+
+Style inheritance:
+	Style Inheritance is the process in which properties are passed from a parent element to its children
+	For example the following style rule sets the color of an article text to blue and the rule is passed to any paragraph or other elements nested within that article
+		Ex:
+			article{color: blue;}
+			p{text-align: center;}
+
+Browser Developer Tools:
+	They allow designers to view HTML code and CSS styles
+	They make it easier to locate the source of a style that has been applied to a specific page element
+	They are different in each browser and are updated and improved constantly
+
+Importing Style Sheets:
+	@import is a CSS at-rule used to import the content of a style sheet file
+		Ex:
+			@import url(“url”);
+
+Working with color in CSS:
+	Color values are values in which the color is given by an exact numeric representation
+	RGB triplet is the intensity of primary colors expressed as a et of numbers in CSS
+	Hexadecimal numbers are numbers expressed in a base 16 numbering system
+
+
+Calculating binary for numbers:
+	Divide until you get 0
+		Don’t use decimal places, use remainders
+	Keep track of remainders
+	Each remainder (either 0 or 1) is your number for that place
+	At the end reverse the order of the numbers calculated (all the remainders)
+		So: 01001101 becomes 10110010
+	Add 0 at the beginning to get sets of 4
+	Thats it!
+		Ex:
+			Problem: convert 110 to binary
+			110, 0
+			55, 1
+			27, 1
+			13, 1
+			6, 0
+			3, 1
+			1, 1
+			0111 011 becomes 110 1110
+			Sub Answer: 110 1110
+			Answer: 0110 1110
+
+Calculating numbers for binary:
+	Multiply each binary digit by 2 to the x power, where x represents the place of the digit starting with 0
+	Add all numbers
+	That’s it!
+		Ex:
+			Problem: convert 1101 1011 to base 10 numbers
+			1 X 2^0 = 1
+			1 X 2^1 = 2
+			0 X 2^2 = 0
+			1 X 2^3 = 8
+
+			1 X 2^4 = 16
+			0 X 2^5 = 0
+			1 X 2^6 = 64
+			1 X 2^7 = 128
+			Answer: 219
+
+Hexadecimal number base:
+
+	1 = 1, 2 = 2, 3 = 3, 4 = 4, 5 = 5, 6 = 6, 7 = 7, 8 = 8, 9 = 9, 10 = A, 11 = B, 12 = C, 13 = D, 14 = E, 15 = F
+
+Hex 16 Powers:
+
+	1048576		65536		4096		256		16		1
+
+Hex to decimal: (doesn’t work
+
+Multiply each hex number from right to left by 16^X (C * 16^0 = 12)
+starting at 0, increase power by one for each number moving left (farthest right is by 0 and the one just left of it is 1
+Then add all your answers together
+
+Day 2/Day 3 - Unit 4.2
+
+The @font-face rule:
+	To access and load a web font, add the @font-face rule to the style sheet
+	Once a web font is defined using the @font-face rule, it is included in the font stack
+
+HSL (Hue Saturation Lightness) Color Values:
+
+Hue - Tint of a color represented by a direction on a color wheel
+Saturation - Measures the intensity of a color and ranges from 0% (no color) to 100% (full color)
+Lightness - Measures the brightness of a color and ranges from 0% (black) up to 100% (white)
+
+Highest number value for HSL is 360
+	EX: hsl(38, 90%, 60%)
+
+Defining Semi-Opaque Colors:
+
+Opacity - Defines how solid a color appears
+A colors opacity is specified using the following properties:
+	color:rgba(red, green, blue, alpha);
+	color:hsla(hue, saturation, lightness, alpha);
+		“Alpha” defines the opacity of the color ranging from 0 (fully transparent) to 1.0 (fully opaque)
+
+Setting text and background color:
+
+	Ex:
+		color: color;
+		background-color: color;
+
+Employing Progressive Enhancement:
+
+Progressive Enhancement is a technique of placing the code conforming to elder standers before newer properties
+This provides support for older browsers and allows newer standards to be used by the browsers that support them
+Basically, start with the design basics and move into more complex properties (HTML, then CSS, then JS)
+3 main aspects to any webpage:
+	Markup - the core HTML of the site
+	Styling - the visual CSS in the site
+	Behavior - the interactivity JS component of the site
+These 3 parts work together but perform very different functions on your site
+While creating your site it is best to keep these as separate as possible
+
+Contextual Selectors:
+
+Contextual selectors - Specifies the context under which a particular page element is matched
+Context is based on a hierarchical structure of a document which involves the relationships between a parent element containing one or more child elements and within the child elements are sever levels of descendant elements
+A contextual selector looks for elements in the HTML and gives style to those elements
+
+*	- Matches any element
+Elem - matches the element elem located in the document
+Elem1, elem 2, etc - matches any elements elem, elem2, etc
+
+Parent descendant
+	Ex: body p {color: red;}
+		In this example any <P> that’s in the body will be red even if it’s within another tag
+Parent > Child
+	Ex: body>p {color: red;}
+		Here the <p> will only be red if there is nothing in between it. If the <p> is in a <div> for example, it won’t be red
+
+Elem1 + elem2
+	Ex: dt+dd{color: red;}
+		Only the very next dd after a dt will be red. If there is a second dd after dt it will not be red.
+		Only effects the specific copy of elem2 immediately preceded by the sibling elem1
+
+Elem1 ~ elem2
+	Ex: dt~dd{color: red;}
+		This changes any dd that is in the same layer as a dt
+		Only changes siblings or elements on the same layer/level
+		This will match an elem2 that follows the sibling element elem1
+
+Some contextual selectors can be combined with each other like elem1~* to apply the style only to all elements within elem1
+
+The * selector is used to choose every element in the code
+	This is called a wildcard selector
+Sibling selectors are used to select elements based on elements that are adjacent to them in the document hierarchy
+
+Attribute Selectors:
+
+Selectors also can be defined based on attribute and attribute values within elements
+
+elem#id —or— #id
+	ID - identifies a group of elements that share a similar characteristic or property
+	Ex1: h1#intro{color: red;}
+		Only changes an id=“intro” when its used for a specific defined element
+	Ex2: #intro{color: red;}
+		Changes any element that has tie id=“intro” identifier
+
+elem.class —or— .class
+Class - Identifies a group of elements that share a similar characteristic or property
+	Ex1: h1.intro{color: red;}
+		Used only for ones with the class identifier and the h1 element
+	Ex2: .intro{color: red;}
+		Used  for any element with the class identifier
+
+Elem[att]
+	All elements in containing the attribute will be affected
+	elem[alt] {color: red;}
+	
+Elem[att~=“text”]
+	All elements whose attribute contains the defined text
+
+Elem[att|=“text”]
+	All elements who’s attribute value is a hyphen-separated list of words beginning with defined text
+
+Elem[att^=“text”]
+	All elements whose attribute begins with defined text
+
+Elem[att$=“text”]
+	All elements whose attribute ends with defined text
+
+Elem[att*=“text”]
+	All elements whose attribute contain the defined text
+
+Setting the font size:
+
+To set font size use the style property
+	Ex1: font-size: 12px;
+	Ex2: font-size: 12%;
+		where size is a CSS unit of length in either relative (%) or absolute (px) units
+
+Absolute units - Fixed in size regardless of the output device and are used only with printed media
+Relative units - Expressed relative to the size of other objects within the web page or to the display properties of the device itself
+
+Scaling fonts with ems and rems:
+
+Text is made scalable with all font sizes expressed relative to default font sizes
+
+The three relative measurements used to provide scalability are:
+	Percent - 12%
+	Em Unit - 12em
+	Rem or root em unit - 12Rem
+
+Using viewport units:
+
+Viewport Unit - A relative unit used to express length as a percentage if the width and height of the browser window
+ CSS3 introduced 4 viewport units
+	1vh - 1% of the browser window height
+	1vw - 1% of the browser window width
+	1vmin - 1vw or 1vh (whichever is smaller)
+	1vmax - 1vw or 1vh (whichever is larger)
+
+Sizing keywords:
+
+Font Sizes are expressed using the following keywords
+	xx-/x-/small
+	medium
+	xx-/x-/large
+	larger
+	smaller
+
+Day 4 - Unit 4.3
+
+Controlling spacing and indentation:
+
+Kerning measures the amount of space between characters, while tracking measures the amount of space between words
+
+The properties to control an elements kerning and tracking are:
+	letter-spacing: value;
+	word-spacing: value;
+
+Leading - Measures the amount of space between lines of text and is set using the following line-height property
+	line-height: size;
+
+Text spacing can be controlled by setting the indentation of the first line text block using the text-indent processionals
+	text-indent: size;
+
+Body {
+	Font-family: ‘gill sans’, calibre, sans-serif;
+	letter space
+}
+
+Working with font styles:
+
+To specify the font style use:
+	font-style: type;
+		Type can be normal, bold, or italics 
+
+Change the weight of the font
+	font-weight: weight;
+		Weight indicates levels of bold formatting
+
+Text decoration:
+	text-decorating: type;
+		type = underline, none, line-through, or overlain
+
+Transform text:
+	text-transform: type;
+
+Font variants
+	font-variant: type;
+		type = normal or small caps
+
+Text alignment:
+
+Horizontally align:
+	text-align: alignment; (left right center or justify
+
+Vertical align:
+baseline bottom middle sub super text-bottom text-top or top
+
+Baseline - aligns to the baseline of the element with the baseline of the parent element
+Bottom - aligns the bottom of the element with the bottom of the lowest in the line
+Middle - Aligns the middle of the element with the middle being of the surrounding content
+Sub - Subecript
+Super - superscript
+Text-bottom - aligns to the bottom of the element
+Text-top - aligns the top of the elements with the true of the text in the 
+
+Combining all text formatting in a single style:
+	Font: style variant, weight, size units/height units, font-family;
+			Ex: font: normal x-small bold 0.9em/3em veranda, sans-serif;
+
+List marker - the default browser style symbol displayed before each list item
+
+To change the type of list marker use:
+	list-style-type: type;
+
+Formatting list: 
+Disc, circle, square, decimal, decimal, decimal-leading-zero
+Lower-roman, lower-alpha
+
+List-style-image: url(url);
+Example
+List-style-image: url(unicorn.jpg);
+
+List-style-position: position:
+	CSS treats each item as a block-level element placed within a virtual box in which the list marker is placed outside the list text (inside, outside, pixel size)
+
+Block-level elements follow the structure of the box model
+
+Contents in a box model are enclosed within the following series of concentric boxes
+	The content of the element itself
+	the padding space which extends from the elements content to a border
+	The border surrounding the padding space
+	The margin span comprised of the space beyond the border up to the next page element
+
+Setting the padding space:
+
+To set width of the padding size, use the following padding property
+	padding:size;
+	padding:value units;
+		Padding-left, padding-right, padding-top, padding-bottom, padding-block, padding-block-end, padding-block-start
+		Enter “auto” or a value number
+
+To set the size of the margin around block level elements use:
+	Margin: size;
+	Margin: top right bottom left;
+
+To set the size of the border space use:
+	border-width: size;
+	border-width:top right bottom left;
+
+Pseudo-class - Classifies an element tased on its current status, position, or use in the document
+Structural pseudo-class - classifies an element based on its location within the structure of the HTML document
+
+:root - the top element in the document hierarchy (the html)
+:empty. -an element with no content
+:only-child - an element with no siblings
+:first-child	- the first child of the parent element
+:last-child - the last child of the parent element
+:first-of-type - the first descendant of the parent that matches the specified type
+:last-of-type - the last descendant of the parent that matches the specified type
+:nth-of-type(n) - eg: l:nth-last of type(3) - the nth element of the parent of the specified type
+:nth-last of type - the nth from the last element of the parent of the specified type
+:only-of-type - an element that has no siblings of the same type
+:not(selector) - an element not matching the specified selector
+
+Pseudo-classed for hypertext:
+
+Dynamic pseudo-class - A type of pseudo-class in which the class can change state based on the actions of the user.
+
+:link - the link has not yet been visited by the user
+:visited - the link has been visited by the user
+:active - The element is in the process of being activated
+:hover - the mouse pointer is hovering over the element
+:focus - the element is receiving the focus of the keyboard or mouse
+
+Pseudo-element - an element that exists only in the rendered page
+Pseudo-elements can be selected using:
+	element::pseudo-element
+
+::first-letter - the first letter of the element text
+::first-line - the first line of the element text
+::before - content inserted directly before the element
+::after - Content inserted directly after the element
+
+Generating content with CSS:
+
+New content can be added with either before or after an element using the following before and after pseudo-elements:
+	ex: element::pseudo-element{
+			content: “this will be inserted”;
+		}
+
+none - sets the content to an empty text string
+Counter - displays a counter value
+attr(attribute) - displays the value of the selector’s attribute
+“Text” - displays the specified text
+Open-quote - displays an opening quotation mark
+Close-quote - displays a closing quotation mark
+No-open/close-quote - removes an open/close quotation mark
+url(url) - displays the content of the media (image, video, etc…) from the file located at the url
+	Also works with local URLs
+
+The content property can be used to insert an attribute value into the rendered web page using the attr() function
+	content: attr(class=“first”);
+
+Inserting Quotation Marks:
+	
+The block quote and q elements are used for quoted material
+Decorative opening and closing quotation marks a can be inserted using the content property
+	content:open-quote;
+	content:close-quote;
+
+
+Unit 3
+Day 1
+Coding Conventions
+
+Always be clean and tidy
+
+Code is rarely ever yours alone and even if you are working on it alone, one you publish it on the web you are working with the world.
+
+Every website needs to follow a certain set of conventions so that they can communicate effectively with each other.
+
+Anytime you write code remember that someone else will likely be reading or using the code in the future.
+Ask these questions to see if your conventions are good:
+
+Can they understand my grouping?
+Do my elements and attributes follow the correct conventions	?
+Does it look nice and clean?
+Do I have enough descriptive comments?
+
+When declaring the document type always put “DOCTYPE” in all caps followed by the type in lowercase
+	Ex: 
+		Good: <!DOCTYPE html>
+		Bad: <!doctype html>
+			This helps with compatibility for older software versions
+
+Always use lowercase element names
+	Don’t mix capital and lowercase names
+	Developers will typically use lowercase names
+	Lowercase looks cleaner
+	Lowercase is easier to write (don’t have to reach for the shift key)
+
+Always close every HTML tag you open
+	In HTML5 not closing some tags like <p> will work fine, however there could be potential issues and it must be closed for compatibly with older versions
+
+Close empty elements
+	In HTML5 you don’t technically have to close empty tags
+	This is required for older software like XML and XHTML
+	It’s good practice to close empty tags
+		Ex:
+			Good: <meta charset=“utf-8” /> 
+			Bad: <meta charset=“utf-8”>
+
+Always use lowercase attribute names
+	HTML5 allows a mix of case sizes
+	Mixing upper and lowercase is unprofessional
+	Lowercase is the industry standard
+	Lowercase is easier to write
+	Lowercase looks cleaner
+		Ex:
+			Good: <meta charset=“UTF-8” />
+			Bad: <meta ChArseT=“UTF-8” />
+
+Quote attribute values
+	HTML5 will allow no quotes for single word, and requires them for multiple words
+	Developers always use quotes for better compatibility with XML
+	If values are more than one word quotes are required
+
+Image Attributes
+	Always use Alternate elements incase the image can’t load
+	Always use height and width attributes when defining and image
+	Defining height and width will limit flickering when the page loads since the space for the image has been set aside
+		Ex:
+			Good: <img src=“cat.jpg” alt=“cat picture” height=“128px” width=“128px” />
+			Bad: <img src=“cat.jpg” />
+
+Spaces and Equal signs
+	HTML5 allows spaces around equal signs
+	Spaceless is the norm for industry
+	Spaceless makes it easier to read and to aid in cleaner grouping of entities
+
+Avoid overly long code lines
+	It’s annoying to scroll left or right
+	If the code is ever extending too much on one line just enter to the next line
+
+Avoid too much white space
+	The code becomes hard to read for others
+	Only use white space to break up logical sections of code
+	It's not necessary to space break every line.
+	Try to only use them when you have large info or sub elements
+
+Unit 3
+Day 2
+
+Software Development Life Cycle:
+
+Understand the SDLC Process:
+
+	Requirements and specifications
+		The client presents the requirements for the site
+		Requirements are the list of customer needs
+		The project team breaks the requirements down to tasks
+		The team prepares a project specification that contains the following:
+			Page layout sketches
+			Audience definition
+			Technical requirements
+
+	Information design and taxonomy creation (Design and Taxonomy)
+		User analysis guides and design of site content
+		Goal is to create meaningful content navigation
+		Taxonomy is a classification and naming of contents in a hierarchy
+		The taxonomy of the site structures the topic hierarchy and navigation
+		Determine who is using the site, this guides color design and the complexity of the layout
+	
+	Graphic design and page template creation
+		Designers prepare sketches and page mockups to represent page layouts
+		All page layouts start with a mockup
+		Mockups can be easily edited based on feedback
+		Wireframes document a more stable page design
+		Wireframes offer a more complete view of what the final design will look like
+
+	Construction and content development
+		Construction begins when the design stage is mostly complete
+		This stage includes technical development of the site
+		Some testing occurs in this stage
+		Mostly used to assign team members their respective jobs
+			Ex: Steve - Navigation (2 Days)
+
+	Quality Assurance and User Testing
+		QA validates the technology of the site
+		User testing validates the design
+		Cross-Platform testing and usability testing ensures users can easily access content
+		Acts as a bug checklist
+
+	Publishing and Promotion
+		The site is published the web
+		Promotion of the site begins
+
+	Ongoing Maintenance
+		Starts when the site goes live and continues throughout its life
+		Keeping content fresh is vital
+
+You need a good project plan
+Larger projects need a project manager
+Adopt a development framework
+The project life cycle encompasses the entire project from start to finish
+
+<Requirements and specifications>
+Creating a site specification
+	Who is the client for the site?
+	Can you write a two or three paragraph mission statement that briefly states the site’s goals?
+	What do you envision as the goal of the site?
+	What do you (or your company/organization) hope to gain from creating and maintaining a website?
+	What are the requirements for the website?
+	Are the requirements feasible?
+	How will the success of the site be judged?
+	Who is the target audience?
+	What are the listing technical factors?
+	What is the budget?
+	Is this a new site or an upgrade?
+
+Identifying the content goal
+	Examine closely what type of site you’re building
+	Your objectives and the user’s objectives may be different
+	Adopt the user’s perspective
+	Think about the type of content you’re presenting and look to the web for examples of how to best present it
+	Types of websites:
+		Billboard
+		Publishing
+		Portal
+		Special intrest
+		Portal
+		Special intrest
+		Blog
+		Social Networking
+		Wikis
+		RSS (Rich Site Summery)
+		Virtual gallery
+		E-commerce, catalog, online shopping
+		Product support
+		Intranet/Extranet
+</Requirements and specifications>
+
+<Information design and taxonomy creation (Design and Taxonomy)>
+Analyzing the Audience
+	Produce an audience definition
+		What is it that users want when they come to your site?
+		How can you attract them and entice them to return for repeated visits
+		What type of computer and connection speed to your typical visitors have?
+	Who are the typical members of the audience
+		Are they male or female?
+		What level of education do they have?
+		What is their reading and vocabulary level?
+		What level of technical aptitude do they have?
+	Why do people come to your site
+		Do they want info?
+		Do they want to download files?
+		Are they looking for links to other websites?
+	Using web analytics
+		Web analytics are statistics gathered by web servers
+		Reporting tools can analyze the statistics
+		You can track user activity on your website
+		You can see where your visitors come from and which pages they like best
+
+Unit 3
+Day 3
+
+Identifying Technology Issues and Accessibility Constraints
+
+Think about where users are geographically located and what their technology level might be
+Test in different environments and with different technologies
+Consider the physical capability of your users
+
+Identify Accessibility Constraints
+	Review the WCAG 2.0 and section 508 guidelines
+	In new sites, plan for accessibility
+	In existing sites access the current accessibility
+	Look to other real-life accessibility implementations
+</Information design and taxonomy creation (Design and Taxonomy)>
+
+<Graphic design and page template creation>
+Identifying Software Tools
+	Try to use software that matches the complexity needs of your site
+	Move up to more advanced tools as your skills grow
+	Learn to use graphic tools as well
+	Look to shareware and freeware options
+
+</Graphic design and page template creation>
+
+Unit 3
+Day 4
+
+Building a Website Development Team
+	Web Project Managers
+		Delegates projects, may code, helps handle architectural decisions
+	Web Developer
+		Developer of the website, needs to have a very widespread knowledge of any code types required
+	Web Designer
+		Designs the CSS and the overall design metrics for the site
+	Website Content Designers
+		Writes and formats the content for the site
+	Website Application Developer
+		Heavy JavaScript for front end and back end, a much harder job and less are needed as not all websites require heavy JS
+
+Unit 3
+Day 5
+
+Creating conventions for filenames and URLs
+(These conventions should be applied to files and folders as well)
+	File naming conventions vary across operating systems
+	The ISO 9660 standard works across all operating systems
+		Minimum of 8 letters followed by a period and a 3 letter extension, allows for letters numbers and the underscore
+	Leave out special characters
+		Newer PC requirements:
+			Maximum of 255 letters; all characters allowed except the following:
+				/  \  * “ < > | : ?
+		Newer Macs:
+			Maximum of 255 characters; all characters are allowed except the following:
+				:
+		ISO 9660 Standard
+			Minimum of 8 letters followed by a period and a 3 letter extension, allows for letters numbers and the underscore (_)
+	Use proper file extensions
+	Use underscores instead of spaces
+	Use all lowercase letters
+
+Complete URLs are the unique addresses for a file on the web
+	Ex: <a href=“https://www.youtube.com/business/trends/mobility.html”></a>
+		“http://“ = protocol
+		
+Partial URLs locate a file that resides on your own computer or server
+	Ex: <a href=“mobility.html”> link text</a>
+
+Setting up a directory structure
+	You build a site on a development computer but host it on a different computer
+	The files for your website must be transferred from the development computer to the hosting computer
+	Your file structure must be transferable
+	Use relative paths to indicate file locations
+
+Single folder structure:
+	Used for very small or single page websites
+	Holds all the HTML CSS and JS files as well as all the graphics
+		Think of how many files were I the small 3 page website for unit 2 compared to the site size for something like Amazon
+	EX:
+		Unit 2 Web folder
+			webPage1.html
+			webPage2.html
+			webPage3.html
+			myScript.js
+			myStyle.css
+			specialImage.jpg
+
+Hierarchical folder structure
+	This is the typical structure you should be using for semi small websites
+	You split up all of the files and types into different folders so that you can stay organized
+	When using this format make sure that you have very precise naming of folders and files
+		webFolder
+			sitePages
+				index.html
+				anotherPage.html
+			siteImages
+				
+			siteStyles
+			siteScripts
+
+Segregated Hierarchical Structure
+	Use for medium and large sites (recommenced for all sites)
+Ex:
+Web folder
+	Home.html
+	Other pages
+		Page2.html
+		Page3.html
+	siteImages
+	siteStyles
+	siteScripts
+
+Setting a Site Structure
+	It’s just as important to have a nice layout for your website
+	Good website structure will lead the visitors to a the pages they want to see in an easy to use way
+	Bad website structure will confuse your visitors and have them looking all over to find what they want, ultimate leading to them leaving and you losing a potential sale/client/reader
+
+Linear structure
+	Leads the reader through the website in a predetermined path
+	Allows the site designer to plan content because they know exactly what the reader has seen
+		Mainpage -> Topic -> Topic -> Topic (then back to main)
+							\> Subtopic (and back)
+
+Tutorial structure
+	This structure allows users to hop around from one concept to another but not ahead in each concept path
+	These structures are great for sites that house several tutorials or instructional lesson on different topics
+	Similar to linear but more topics
+
+Web structure
+	Goes from main page to any topic and from any other topic to the main page, no flow restriction
+	In a web structure you’re able to access any web page from any other webpage usually through a nav bar
+	This structure is great for sites that hold a lot of content or documents or contact info so people can jump to what they’re looking for
+
+Hierarchical Structure
+	This structure is similar to the tutorial style but more complex and used with a more informed audience
+	Style has branching paths and if the visiter doesn’t have a nav or search bar then they may become lost in the pages, unable to find their destination
+		Site map -> MainPage
+						-> Section types
+							->Content
+						->section types
+							->Content
+
+Cluster Structure
+	This structure is best use for sites that want to break into different compartments and have info about those specifically
+		Site map -> main page
+						-> section page
+							->content page
+						-> section page
+							->content page
+
+Catalog Structure
+	This structure is better for distributing many different pages that don’t have many links off of them
+		Main
+			-> content page
+				->entry1
+				->entry2
+			->search
+				->entry1
+				->entry2
+
+The “long tail” of web searches
+	There’s so many sites online that it would be crazy to expect people to search for your specific page
+	Only a few sites get get almost all of the traffic, the rest are found through links in search engines
+
+Publishing your website
+	Choose a Web Hosting Service Provider
+	The web hosting service hosts your website
+	Select a Web Hosting Service appropriate to the size of your website
+	Check for the following features
+		Accessible technical support
+		E-Mail addresses
+		SQL database support
+		Secure Socket Layer (SSL) support
+
+Web Hosting Service Comparison Checklist
+	Is the web host local or national
+	What are the details of the different hosting packages
+	Are there bandwidth limits for the number of visitors your site receives per month
+	How many email addresses do you get?
+	Does the web host provide software and offer support for the latest connection technologies?
+	Does the web host offer enhanced services?
+	Does the web host offer technical support?
+
+Uploading your files with FTP
+	To publish pages on the web, you must send your HTML code, images, and other files to the web server
+	FTP software lets you transfer the files (File Transfer Protocol)
+	Some HTML-editing software has built-in FTP
+	There are many shareware and freeware FTP programs to choose from
+
+Testing your website
+	Multiple browsers
+	Multiple operating systems and devices
+	Connection speeds
+	Display types
+	Link testing
+
+Usability Testing
+	Vary your subjects
+	Formalize your testing
+	Develop a feedback form
+
+Feedback questions
+	Did you find the info you needed?
+	Was it easy or difficult to access the info you needed?
+	Did you find the website visually attractive?
+	Did you find the content easy to read?
+	Did you find the content easy to navigate?
+	Did you think the info was presented correctly?
+	Did the info have enough depth?
+	What area of the website did you like the best? Why?
+	What area of the website did you like the least? Why?
+	Would you recommend the site to others?
+
+Summary
+	A successful website is the result of carful planing and execution
+	Become familiar with the web development lifecycle
+	Start with pencil and paper
+	Write a site specification document
+	Identify the contact goal
+	Analyze your audience
+	An effective site is a team effort
+	Create portable filename conventions
+	Create an information structure for your site
+	Shop carefully when seeking a web host
+	Learn to use FTP software
+	Test, Test, Test, and Test some more
+
+
+Unit 2: Exploring the World Wide Web Notes
+
+Network - A network is a structure in which information and services are shared among devices
+Host/Note - A host or node can be any device that is capable of sending and/or receiving data electronically
+Server - A server is a host that provides info or a service to other devices on the network
+
+Client - A computer or other device that receives a service is called a client
+Client-Server network - Clients access info provided by one or more users
+LAN - A Local Area Network is a network confined to a small geographic area such as within a building or department
+	Runs offline, Doesn’t require a connection to the broader internet (P2P)
+
+WAN - A network that covers a wide area such as several buildings or cities is called a Wide Area Network
+	The largest WAN is the internet
+
+History:
+Timothy Berners-Lee + others at the CERN nuclear research facility near Geneva, Switzerland which laid the foundations for the WWW or the Web, starting in 1989
+These scientists developed a system of interconnected Hypertext documents that allowed their users to easily navigate from one topic to another
+
+In the early years of HTML, Browser devs were free to define and modify the language as no rules or syntax were defined
+The WWW Consortium or the W3C, created a set of standards or specs for all browsers for manufacturers to follow
+	The W3C has no enforcement power, any form can still be used
+
+W3C recommendations are typically followed since a uniform approach to web page creation is beneficial to all users and devs.
+</History>
+
+Hypertext - Hypertext is a method of organization in which data sources are interconnected through a series of links or hyperlinks that users can activate to jump from one piece of info to another
+	Hypertext has since evolved into HTML (HyperText Markup Language)
+
+Web Page - Each document on the web is referred to as a web page
+Web Server - Web pages are stored on web servers
+Web Browser - Documents on the web are accessed through a software program known as a web browser
+	Ex: Chrome, Safari, IE, Firefox, Opera, Chromium, MSFT Edge
+
+HTML:
+
+Webpages are written in HTML
+
+Markup Language - A markup language describes the content and structure of a document by identifying or tagging different document elements
+
+XHTML - Extendible Hypertext Markup Language, is a different version of HTML 5 enforces with a stricter set of standards
+	Not commonly in use anymore
+HTML5 - Newest version of HTML currently in use and has become the gold standard used on the current and next gen. of HTML
+Older versions - Older versions of HTML are deprecated, meaning they are no longer actively developed, however it issei’s often used in order to support older browsers and clients
+Deprecation - elements that are no longer support and classified as legacy
+	<I>Italicized</I> versus <em>Emphasized</em>
+
+IDE (Integrated Development Environment) - A software package that provides comprehensive coverage of all phases of the development process from writing HTML to creating scripts for programs running on we servers
+Validators - Programs that test code to ensure that it contains no syntax errors
+</HTML>
+
+HTML syntax:
+
+First line in any HTML document -  <!DOCTYPE html>
+Element Tag - The fundamental building block in every HTML document that marks an element in the document
+Starting Tag -  Indicates the beginning of an element, while an ending tag indicates the ending
+	Start tag: <Element>
+	End tag: </Element>
+The general syntax of a two sided element tag is: <Element>Content</Element>
+The following code marks a paragraph element: <p>Text Here</p>
+Empty elements are elements that are either contextual (images, for example) or contain directives to the browser about how the page should be treated
+	Ex: <br> is used to indicate the presence of a line break in the text
+The second line in any HTML document is the <html> tag which tells the computer that the remainder of the document is an HTML document
+	Ex: <html></html>
+
+Doc Parts - An HTML document is divided into two main sections: the head and the body
+Head - The element that marks info about the document
+Body - The element that marks where the content that appears on the page will be located
+	Body is always placed after the head tag
+
+Handling White Space:
+Text vs White-space - HTML file documents are composed of text chars and white-space
+White-Space Char - Any empty or blank character such as a space, tab, or line break
+	Can be used to make the file easier to read by separating one code block from another
+
+HTML describes a document’s content and structure, but not its appearance. The actual appearance of the document is determined by style sheets (CSS or Cascading Style Sheets)
+
+Parts of the Head (element):
+<head></head> - Contains a collection of metadata elements that describe the document or provide instructions to the browser
+<base> - Specifies the document’s location for use with resolving relative hypertext links
+	Functions as a shortcut so later references start at your base reference instead of having to enter it every-time
+	Ex: <base href="https://www.google.com">
+<link> - Specifies an external resource that the document is connected to
+	Ex: <link rel="styleSheet">
+<meta> - provides a generic list of metadata values such as search keywords, viewport properties, and the file’s character encoding
+	Types of Meta data:
+		Charset = “UTF-8” - Character encoding that will be used in the document
+		Name = “Keyword” - Main topic of the site
+		Content = “topic1, topic2, topic3” - Keywords used in search engines
+<script></script> - Provides programming code for programs to be run within the document
+	Can be used in either the head or the body
+<style</style> - Defines the display styles used to render the document content
+<title></title> - Stores the document’s title or name, usually displayed in the browser title par or on a browser tab
+Comments - A comment is descriptive text that is added to the HTML file but does not appear in the browser window
+	Ex: <!--comment-->
+	Comments can be spread across several lines
+	It’s good practice to always include a comment in the document head
+
+Parts of the body (element):
+Sectioning/semantic elements - HTML makes the major topical areas of page using sectioning elements also referred to as semantic elements. The most common ones make a nav bar on the left, an “aside” on the right usually used for ad space, and a footer at the bottom for credentials and social media material
+	<address></address> - Marks contact info for an individual or group
+	<article></article> - marks a self-contained composition on the document such as a newspaper story (HTML5)
+	<aside></aside> - Marks content that is related to a main article (HTML5)
+<body></body> - Contains the entire content of the document
+<footer></footer> - Contains the closing content that concludes an article or section (HTML5)
+<h1-6></h1-6> - Marks major headings with h1 representing the heading with the highest, h2 is next and so on
+<header></header> - Contains opening content that introduces an article or section (HTML5)
+<nav></nav> - marks a list of hypertext or navigation links (HTML5)
+<section></section> - Marks content that shares a common theme or purpose on the page (HTML5)
+Grouping elements - elements that break up the page into defined chunks that we can use to navigate easier
+	<blockquote></blockquote> - contains content that is quoted from another source, often with a citation and often indented on the page
+	<div></div> - Contains a generic grouping of elements within the document
+	<p></p> - Contains a paragraph
+	<dl></dl> - Marks a description list containing one or more dt elements with each followed by one or more dd elements
+	<dt></dt> - Contains a single term from a description list
+	<dd></dd> - Contains the description of definition associated with a term from a description list
+	<figure></figure> - Contains an illustration, photo, diagram, or similar object that is cross-referenced elsewhere in the document (HTML5)
+	<figcation></figcation> - Contains the caption associated with a figure (HTML5)
+	<hr></hr> - Marks a thematic break such as a scene change or a transition to a new topic (often displayed as a horizontal rule
+	<main></main> - Marks the main content of the document or application, only one main element should be used in the document (HTML5)
+	<pre></pre> - Contains a block of reformatted text in which line breaks and extra spaces in the code are retained
+		Often displayed in a monospace font
+	<ol></ol> - Contains an ordered list of items
+		Ex: 1. 2. 3.
+	<ul></ul> - Contains an unordered list of items
+		Ex: * * *
+	<li></li> - Contains a single item from an ordered or unordered list
+
+8/14/2019:
+
+Test Level Elements:
+Text level elements go inside of a grouping or sectioning element and mark the words so that the CSS file can easily identify what they’re meant for
+
+<a></a> - Marks content that acts as a hyperlink
+<abbr></abbr> - Marks an abbreviation or acronym
+<b></b> - Makes text bold (DEPRECATED)
+<br> - Represents a line break within the grouping element
+<cite></cite> - Marks a citation to a title or author of a creative work (also makes the works appear in italics)
+<code></code> - Marks content that represents computer code (text appears in monospace font)
+<data></data> - Associates a data value with the marked text with the value attribute providing the value (HTML5)
+<dnf></dnf> - Marks the defined term for which a definition is given elsewhere in the document
+<em></em> - Indicates content that is emphasized or stressed (text appears in italics)
+<I></I> - indicates that a span of text is expressed in an alternate mood (text appears in italics) (DEPRECATED)
+<kbd></kbd> - Marks text that replaces user input, typically from a computer keyboard of voice command
+<marks></marks> Contains a row of text that is marked or highlighted for references purposes (HTML5)
+<q></q> - Marks content that is quoted from another source
+<s></s> - Marks content that is no longer accurate or relevant (text us usually stuck through)
+<samp></samp> - Marks text that represents the sample output from a computer program or application
+<small></small> - Marks side comments (text is in small print)
+<span></span> - Contains a generic run of text within the document
+<strong></strong> - Indicates content of strong importance or seriousness (text will appear in bold)
+<sub></sub> - Marks text that should be treated as a text subscript
+<sup></sup> - marks text that should be treated as a text superscript
+<time></time> - Marks a time value or text string (HTML5)
+<u></u> - Indicates text that appears stylistically different from normal text (text appears underlined)
+<var></var> - Marks text that is treated as a variable in a mathematical expression or computer program
+<wbr> - Represents where a line break should occur, if needed, for a line text string (HTML5)
+
+Linking an HTML Document to a Style Sheet (CSS document):
+
+Style Sheet - A set of rules specifying how page elements are displayed; it’s written in the Cascading Style Sheet (CSS) language
+
+To link an HTML document to an external style sheet file, add the following element:
+	<link href=“ct base.css” rel=“stylesheet”>
+
+Character Set - A collection of characters and symbols rendered by the browser
+Character Encoding - Associates each character from a character set that can be stored and read by a computer program
+Character Entity Reference - Also used to insert a special symbol using the syntax
+	&char; (where char is the character’s entity reference)
+
+To support embedded content, content imported from another resource, HTML provides embedded elements
+Inline images - Images that are placed like text-level elements in line with the surrounding content
+
+To embed an inline image into the document use:
+	<img src=“ct_logo2.png” alt=“Curbside thai”>
+The img src is the name of the file on the local machine
+The image needs to be in the folder on the computer that has the html code
+Alt is what displays when the picture fails to load
+
+Hypertext is created by enclosing content within a set of opening and closing <a> tags (the “a” stands for “anchor”
+	Ex: <a href = “url”>Text to be displayed</a>
+
+URL - Stands for “Uniform Resource Locator”
+
+Inline images can also be turned into links by enclosing that image within opening and closing <a> tags
+	Ex: <a href = “url”><img src=“images.png”></a>
+
+
+Other Notes:
+
+Take the RGB code for "tomato" (255, 99, 71) solve for the Hexadecimal code by doing the following:
+
+Take the Red code and multiply by 16^4,
+add that to the Green multiplied by 16^2,
+add that to the Blue Multiplied by 16^0.
+
+Convert that decimal number you just got into hexadecimal
+
+
+
+16711680
+
+25344
+
+71
+
+
+16737095
+1046068 R: 7 -> 7
+65379 R: 4 -> 4
+4086 R: 3 -> 3
+255 R: 6 -> 6
+15 R: 15 -> F
+0 R: 15 -> F
+
+1 = 1, 2 = 2, 3 = 3, 4 = 4, 5 = 5, 6 = 6, 7 = 7, 8 = 8, 9 = 9, 10 = A, 11 = B, 12 = C, 13 = D, 14 = E, 15 = F
+
+FF6347
+————————————————————————————————
+
+what is 2345 written in binary?
+What is 1001 1001 1001 1001 written in decimal —> 39321
+and what is #2FAB4F written in decimal?
+
+Calculating numbers for binary:
+	Multiply each binary digit by 2 to the x power, where x represents the place of the digit starting with 0
+	Add all numbers
+	That’s it!
+		Ex:
+			Problem: convert 1101 1011 to base 10 numbers
+			1 X 2^0 = 1
+			0 X 2^1 = 0
+			0 X 2^2 = 0
+			1 X 2^3 = 8
+
+			1 X 2^4 = 16
+			0 X 2^5 = 0
+			0 X 2^6 = 0
+			1 X 2^7 = 128
+
+			1 X 2^8 = 256
+			0 X 2^9 = 0
+			0 X 2^10 = 0
+			1 X 2^11 = 2048
+
+			1 X 2^12 = 4096
+			0 X 2^13 = 0
+			0 X 2^14 = 0
+			1 X 2^15 = 32768
+
+			Answer: 39321
+
+
+—————————————————————————————————
+
+Divide until you get 0
+		Don’t use decimal places, use remainders
+	Keep track of remainders
+	Each remainder (either 0 or 1) is your number for that place
+	At the end reverse the order of the numbers calculated (all the remainders)
+		So: 01001101 becomes 10110010
+	Add 0 at the beginning to get sets of 4
+	Thats it!
+		Ex:
+			Problem: convert 110 to binary
+			110, 0
+			55, 1
+			27, 1
+			13, 1
+			6, 0
+			3, 1
+			1, 1
+			0111 011 becomes 110 1110
+			Sub Answer: 110 1110
+			Answer: 0110 1110
+
+2345
+
+2345, 1
+1172, 0
+586, 0
+293, 1
+
+146, 0
+73, 1
+36, 0
+18, 0
+
+9, 1
+4, 0
+2, 0
+1, 1
+
+Answer: 1001 0010 1001
+
+—————————————————————————————————
+ Hex to decimal:
+
+Multiply each hex number from right to left by 16^X (C * 16^0 = 12)
+starting at 0, increase power by one for each number moving left (farthest right is by 0 and the one just left of it is 1
+Then add all your answers together
+
+1 = 1, 2 = 2, 3 = 3, 4 = 4, 5 = 5, 6 = 6, 7 = 7, 8 = 8, 9 = 9, 10 = A, 11 = B, 12 = C, 13 = D, 14 = E, 15 = F
+
+#2FAB4F
+
+F - 15 * 16^0 = 15
+4 - 4 * 16^1 = 64
+B - 11 * 16^2 = 2816
+A - 10 * 16^3 = 45056
+F - 15 * 16^4 = 983040
+2 - 2 * 16^5 = 2097152
+
+Answer: 3128143
+
+Other Notes 2:
+
+Binary conversions:
+
+Problem: 144 convert to binary
+144, 0
+72, 0
+36, 0
+18, 0
+9, 1
+4, 0
+2, 0
+1, 1
+Answer: 1001 0000
+
+Problem: 1011 1010 convert to base 10
+
+581; 1
+290; 0
+145; 1
+72; 0
+36; 0
+18; 0
+9; 1
+4; 0
+2; 0
+1; 1
+Answer: 0010 0100 0101
+
+1001 1001
+
+1 X 2^0 = 1
+0 X 2^1 = 0
+0 X 2^2 = 0
+1 X 2^3 = 8
+
+1 X 2^4 = 16
+0 X 2^5 = 0
+0 X 2^6 = 0
+1 X 2^7 = 128
+Answer: 153
+
+Other Notes 3:
+
+Categories:
+
+Name
+
+Biology
+	Physiology
+	Natural abilities
+	Behavior
+
+Game info
+
+
+Other Notes 4:
+
+Bad things about sites:
+
+—Art.Yale.EDU—
+Repeating images and images in general are awful as backgrounds
+
+There is no formatting or defined sections for specific types of info
+
+There is no CSS and the HTML styles are awful
+
+Text blends into the background
+
+There is no consistent color theme, across pages or in a single page
+
+Nothing is aligned to any known guide
+
+--tagteamsigns.com—
+
+The page scrolls horizontal
+
+The currently selected page text is hard to see
+
+Logo is hard to read
+
+Too much info on a single page
+
+Maps and location images are too bright for such a dark page UI
+
+Some text (nav in particular) is too plain and small
+
+—Constellation7.org—
+
+Rainbows are evil
+
+Sounds should not play unless the user specifically approves it
+
+Page takes very long to load (over 30 seconds)
+
+Page won’t even load without accepting a very long (multi paragraph) message
+
+Text has no organization in terms of size
+
+Odd mix of mid page images and text
+
+There is no color theme
+
+There are so many moving images
+
+Other Notes 5:
+
+Portfolio Project Info
+
+
+Resume Section:
+
+Zac Ingoglia 
+Highly Passionate Tech Expert 
+Glendale, AZ 
+poisonite@gmail.com 
+602-432-2018 
+I’ve been actively designing, building, and maintaining computers on commission for over 3 years. Recently, I’ve become very well acquainted with older systems. This includes repairing both software and hardware issues on said computers as well as upgrading them. There’s absolutely nothing I have a greater passion for than building and fixing computers. 
+
+Authorized to work in the US for any employer.
+
+Work Experience:
+
+Multimedia Editor 
+RockHouseU July 2016 to June 2018 
+Primary editor for promotional video materials. Working remotely on assigned projects while exceeding employer expectations. This job required extensive patience and focus in order to find micro and macro errors in footage to create a professional and eloquent final product that is both artistically and technically perfect.
+
+Cell Phone Repair Technician
+Quick Mobile Repair April 2019 to Present
+Primary duties include repairing customer mobile devices to a high degree of accuracy as well as managing the day to day operations of the shop. This role requires extreme attention to detail and, in a larger sense, a detail orientated person. Using and honing these skills has been largely helpful in advancing my progress in software development as it has enhanced my innate ability to problem solve and detect potentially vital errors early on.
+
+Desktop and Laptop Repair Specialist
+Quick Mobile Repair April 2019 to Present
+Primary duties include managing and completing all repairs on desktop and laptop computer systems. This includes systems running both Mac OSX and Microsoft Windows based systems. Repairs include: software tuneup, hardware cleaning, OS reinstall (with and without data migration), hardware replacement for upgrade, hardware replacement for faulty/defective, and general customer interaction and teaching. The troubleshooting skills I’ve acquired while fulfilling this position have allowed me to constantly expand my knowledge base and find viable solutions for nonstandard problems. I also apply this troubleshooting technique to find solutions to any problems even if I don’t currently have the technical knowledge required.
+
+Education 
+Mountain Ridge High School - Glendale, AZ 
+August 2017 to May 2021
+
+WestMec Coding Year 1 - Phoenix, AZ
+August 2019 to May 2020
+
+Skills
+Microsoft Office, Computer Repair (3 years), Computer Hardware (4 years), Photoshop CC (2 years), Illustrator CC (2 years), Photography (1 Year), Indesign CC (1 year), Premiere Pro CC (2 years), Computer Software (4 years) 
+
+Certifications/Licences
+
+Driver's License
+February 2019 to February 2029 
+Standard AZ drivers license
+
+Adobe Illustrator CC Certification
+May 2019 to May 2021
+Certified by Adobe in Adobe Illustrator
+
+Additional Information
+I am highly passionate about technology and helping people, this combined with my several years of tech experience makes jobs in the technician field highly suited towards me.
+
+References can be furnished upon request.

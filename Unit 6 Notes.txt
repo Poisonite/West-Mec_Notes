@@ -1,0 +1,360 @@
+Unit 6
+
+Creating Figure Boxes
+
+Figure and figcation elements:
+	They are used by hTML5 to introduce structural elements
+	The figcation element is optional
+	The figcation element can be placed directly before of after a figure box content
+
+General Syntax:
+	<figure>
+		Content
+		<figcation> Caption Text</figcaption>
+	</figure>
+			Where:
+				Content is the content appearing in a figure box
+				caption text is the description that accompanies the figure
+
+Exploring Background Styles
+
+The use of images for backgrounds is supported bu CSS using the following:
+	background-image: url(url);
+
+Url specifies the name and location of the background image
+
+Tiling a background image
+
+Tiling - The process of repeating an image both vertically and horizontally until the background is filled
+The type of tiling can be specified by applying the following:
+	background-repeat: type;
+		Where type can equal: repeat (default), repeat-x, repeat-y, round, or square
+
+Choosing your graphical file format
+
+2 Main types:
+	Vector Images (can be saved as an SVG)
+	Bitmap Images (can be saved as jpeg, gif, png)
+
+Vector Images:
+	Created using lines and curves based on points and mathematical formulas
+	These are good to use because they produce clear images no matter how much they are resized
+	They also tend to be smaller in size
+Bitmap Images (.GIF):
+	This is the oldest style that is still currently used today
+	Benefits:
+		Supports transparent colors
+		Animated images
+	Drawbacks:
+		Only supports 256 colors
+		Have a large storage size
+Bitmap Images (.JPEG):
+	Most popular photo format
+	Benefits:
+		Smallest file size
+		Supports 16 million colors
+	Drawbacks:
+		Does not support transparent color
+		Does not support animations
+Bitmap Images (.PNG):
+	Newest mainstream image format and was designed to replace gifs
+	Benefits:
+		Millions of colors
+		Transparent colors
+		Contains Color Correction information for rendering
+	Drawbacks:
+		Not the smallest file size
+
+Choosing your Graphical File Format:
+
+The choosing your file format the most important thing you’re choosing is the file size
+You want to pick the smallest size image that will still give you a clean image
+Almost every image you find will be png or jpeg but gifs are still used on some legacy sites and for animations
+
+Attaching the Background Image
+
+A Background image is attached to its element so that it scrolls when the element content is scrolled
+The attachment can be changed using the following property:
+	background-attachment: type;
+		Where type can be: scroll(default), fixed, or local
+			Scroll sets the background to scroll with the element content
+			Fixed created background that stays in place even as the element content is scrolled
+			Local allows the element background to scroll along it the content within the box
+
+Watermarks:
+	Translucent graphics displayed behind a content
+	They can e created using fixed backgrounds
+	Often used to indicate that a content material is copyrighted
+
+Setting the background image position:
+
+By default the background images are placed in an element’s top-left corner
+The following property can be used to set the position of a background image:
+	background-position: horizontal vertical;
+		Where horizontal and vertical provide the coordinates of a image within the element background
+
+Keywords to position a background image are as follows:
+	Left, center, and right are used to position the background horizontally
+	Top center and bottom are used to position the background vertically
+The background-position is only useful for non-tiled images
+
+Defining the Extent of the Background
+
+An element’s background extends only through the padding space excluding the border space
+This can be changed ———(cut off)
+
+Where type can be:
+	Content-box to extend the background only through the element content 
+	Padding-box to extend the background through the padding space
+	Border-box to extend the content through the border space
+
+Sizing and clipping and image:
+
+By default the size of a background image equals the size stored in its image file
+The size can be changed by using the following property:
+	background-size: width height;
+		Where width and height can be specified in pixels or by Ising the keywords auto, cover, and contain
+
+The background property:
+
+Different background options can be organized using the following property:
+
+Background: color url(url) position/size repeat attachment origin clip;
+	“color” can be skipped, everything else must be in the right order and present
+
+Adding Multiple Backgrounds
+
+Multiple backgrounds can be added to a single element by listing the backgrounds in a comma separated list
+
+Setting border width and Color
+
+There are several style properties that can be used to format the border around each element using CSS
+To define the thickness of a specified border you can use:
+	border-side-width: width;
+		where width is the width of the border
+		side is either top, right, bottom, or left
+
+To define the color to use:
+	border-side-color: color;
+		where side is either top, right, bottom, or left
+
+To define the style to use:
+	border-side-style: style;
+		Where style is either solid, dashed, dotted, double, onset, inset, groove, ridge, and none
+
+Creating Rounded Corners
+
+Any of the four corners of a border can be rounded off by applying the following property
+	border-radius: top-left top-right bottom-right bottom-left;
+		Where these ^^ are the radii of the individual corners (in order listed)
+
+Creating Elongated Corners
+
+You can create an elongated corner by using the following code
+	border-radius: horizontal vertical
+You can also declare specific corners for your code
+	border-corner-radius: size
+		bottom-left bottom-right	top-left top-right
+
+Applying a Border Image
+
+A border image is a border based on a graphic image
+The graphic image is seized into nine sections representing the four corners, the four sides, and the interior piece
+The content of the object appears in the interior piece and this piece is discarded
+The four corners become the corners of the border
+The four sides are either stretched or tiled to fill in the border’s top, right, bottom, and left sides
+A border image is applied using the following property:
+	border-image: url(url) slice repeat;
+		Url indicates the source of the file
+		Slice indicates the width or height of the slice used to create the sides and corers
+		Repeat indicates whether the side slices should be stretched or tiled to cover the four sides of the border
+The repeat option supports the following values:
+	Stretch, repeat, round, space
+
+Creating a Text Shadow
+
+A shadow can be added to text on a page, to give the text a visual impact by using the following property
+		text-shadow: color offsetX offsetY blur;
+			Color is the shadow color
+			OffsetX and OffsetY are distances of the shadow from the text in both the horizontal and vertical directions
+			Blur creates a blurred effect by spreading out a shadow
+
+Creating a Box Shadow
+
+Any block element can be shadowed by using the box-shadow property
+	box-shadow: color offsetX offsetY blur;
+		Color is the shadow color
+		OffsetX and OffsetY are distances of the shadow from the text in both the horizontal and vertical
+
+Applying a Color Gradient
+
+Color gradient:
+	One color gradually blends into another color or fades away if transparent colors are used
+	It can be used t modify a background color
+
+Linear gradient:
+	Background colors transition from a starting color to an ending color along a straight line
+	the default direction is vertical starting from top and moving to bottom
+		linear-gradient (color1, color2, etc);
+
+Typing “inset” will move the gradient/shadow inward on the applied object
+
+Directions of Linear Gradients
+
+In CSS you are also able to have your linear gradients come rom an angle
+	linear-gradient(60deg, red, yellow, blue);
+		OR
+	linear-gradient(to left bottom, red, yellow, blue);
+		This gradient uses the same colors but comes in from the top left and moves to the bottom right
+
+Creating a Radial Gradient
+
+Radial gradient
+	It is a color gradient that starts from a central point
+	It proceeds outward in a series of concentric circles of ellipses
+
+Radial gradients are created using the following radial gradient functions:
+	radial-gradient (shape size at horizontalPos verticalPos, color1 stop1, color2 stop2, etc);
+
+The size value in the radial-gradient function:
+	defines the extent of the gradient as it radiates outward
+	can be expressed with a CSS unit
+	can be expressed as a percentage of the background width and height
+	can be expressed with one of the following keywords:
+		farthest-corner(default), farthest-side, closest corner, and closest-side
+
+Repeating a Gradient
+
+A gradient design can be repeated to avoid the gradient function from being complicated due to the addition of more color stops
+	repeating-linear-gradient(params)
+	repeating-radial-gradient(params)
+		Where params are any parameters of the linear or radial gradient functions
+
+Creating a semi-transparent object
+
+Semi transparent color can be created using the opacity property and can be applied to any object
+	opacity: 0.30;
+
+Transforming Page Objects
+
+Rotation, rescaling, and translation in space can be used to transform the appearance of page objects
+	transform: efect(params);
+		effect is the transformation function that’s applied to the page object
+		params specifies the parameters required by the transformation function
+
+Translate(offx, offy), translateX(), translateY()
+	Does the object off X pixels to the right and off Y pixels down, negative values move left and up
+Scale(x, y) scaleX(), scaleY()
+	Resizes the object by a factor of x horizontally and y vertically
+Skew(angleX, angleY), skewX(), skewY()
+	Skews the object by the angle X degrees horizontally and by the angle Y degrees vertically
+
+rotate(angle)
+	rotates the objects by angle degrees clockwise, negative values move counterclockwise
+matrix(n, n, n, n, n, n)
+	Applies a 2d transformation based on a matrix of 6 values
+
+Transformations in Three Dimensions
+
+A 3D transformation is a change that involves 3 spatial axes:
+	An x-axis that runs horizontally across the page
+	A y-axis that runs vertically
+	A z-axis that comes straight out of the page towards ad away from the viewer
+
+You are able to do any of the transformations that are done in 2dimentions by just adding a 3d at the end, Ex:
+	transalte3d(offx, offy, offz)
+	perspective(p)
+		sets the size of the perspective effect to p
+	Matrix (n, n, n, n, n, n, n, n, n, n, n, n, n, n, n, n)
+		Applies a 3D transformation based on a matrix of 16 values
+
+Understanding Perspective
+
+Perspective: A measure of how rapidly objects appear to recede from the viewer in a 3D space
+	It’s used when only 1 object needs to be transformed in the 3D space
+
+Perspective can be thought in terms of a pair of railroad tracks that appear to converge at a point (i.e. the vanishing point)
+
+The perspective of a 3D space can be defined using:
+	perspective: value;
+		value is a positive value that measures the strength of the perspective effect
+		lower value results in more extreme distortion
+
+Exploring CSS Filters
+
+Filters adjust how a browser renders an image, a background, or a border
+
+Filters modify an object’s color, brightness, contrast, general appearance
+	Originally introduced as a Webkit browser extension
+
+Filters can be applied using the following property:
+	filter: effect(params);
+		Effect is a filter function
+		Params specify the parameters of filter function
+
+List of filters:
+
+blur(length)
+	Applies a blur to the image where length defines the size of the blur in pixels
+brightness(value)
+	Adjust the brightness where values from 0 to 1 decrease the brightness and values greater than 1 increase the brightness
+Contrast(value)
+	Adjusts the contrast where values from 0 to 1 decrease the contrast and values greater than 1 increase the contrast
+Drop-shadow(offsetX offsetY blur color)
+	Adds a drop shadow to the image where offsetX and offsetY are horizontal and vertical distances of the shadow, blur is the shadow blurring and the color is the shadow color
+Grayscale(value)
+Displays the color in grayscale tone from 0(completely unchanged) to 1(completely in grayscale
+Hue-rotation(angle)
+	Adjusts the hue by angle in the color wheel where 0deg leaves the hue unchanged, 180deg displays the complementary color and 360 again leads the hue unchanged
+Invert(value)
+	Inverts the color from 0(leaving the image unchanged) to 1 (fully inverted)
+Opacity(value)
+	Applies transparency to the image from 0 (fully transparent) to 1 (fully opaque)
+saturate(value)
+	Adjusts the color saturation where 0 to 1 decreases saturation and greater than 1 increase the saturation
+sepia(value)
+	Displays the color in a sepia tone from 0(completely unchanged) to 1(completely in sepia
+url(url)
+	loads an SVG filter file from url
+
+Working with Image Maps
+
+When an inline image is marked as a hyperlink, the entire image is linked to the same file
+HTML allows an image to be divided into different zones or hotspots
+Hotspots can be linked to different URLs through information given in an image map
+
+Image maps supported by HTML:
+
+Client-side image maps - image map defined within a web page and handled entirely by the web browser
+Server-side image map - Image map that relies on a program running on the web server to create and administer the map
+
+Defining a Client-SIde Image Map
+
+Client-side image maps are defined with the following map element:
+	<map name=“text”>
+		Hotspots
+	</map>
+		text is the name of the image map
+		Hotspots are the defined regions within a image that are linked to different URLs
+
+They can be placed anywhere within the body of a web page
+They are not actually displayed by browsers
+They are simply used as references for mapping the locations of the hotspots within the image
+The most common practice is to place a map element below the corresponding image
+
+Hotspot within the map element can be defined using the following element:
+	<area shape=“shape” coords=“coordinates” href=“url” alt=“text” />
+		shape is the shape of the hotspot region
+		coordinates are the list of points that define the boundaries of that region
+		url is the URL of the hypertext link
+		text is the alt text displayed when the map is broken/ hovered
+
+Circular hotspots are defined using the attributes:
+	shape=“circle” coords=“x, y, radius”
+		where x and y are coordinates of the center of the circle and radius is the circle’s radius
+
+Applying an Image Map
+
+An image map can be applied to an image using the following use map attribute to the omg element:
+	<img src”url” alt”text” usemap”#map” />
+		where map is the name assigned to the image map within the current html file
