@@ -1,0 +1,98 @@
+Introducing Resonsive Design:
+
+    Page content
+        Mobile - Content should be short and to the point
+        Desktop - Content can be extensive giving readers the opportunity to explore all facets of the topic
+
+    Page Layout
+        Mobile - Content should be laid out within a single column, with no horizontal scrolling
+        Desktop - With a wider screen size, content can be more easily laid out in multiple comumns
+
+    Hypertext links
+        Mobile - Links need to be easily accessed via a touch interfase
+        Desktop - Links can be activated more precisely
+
+    Network Bandwidth
+        Mobile - Sites tend to take longer to load over cellular networks and thus overall file size should be kept small
+        Desktop - Sites are quickly accesses over high-speed networks, which can mroe easily handle large file sizes
+
+    Lighting
+        Mobile - Pages need to be easily visable in outdoor lighting through the use of contrasting colors
+        Desktop - Pages are typically viewed in an office setting, allowing a broader color palette
+
+    Device Tools
+        Mobile - Mobile sites often need to access devices such as phone dialing, messaging, mapping, and built in cameras
+        Desktop - Sites rarly need to access device tools
+
+    Three primary components of responsive design theory identified by Ethan Marcotte are:
+        Flexibe layout so that the page layout automatically adjusts to screens of different widths
+        Responsive images that resize based on the size of the viewing device
+        Media queries that determine the properties of the device rendering the page so that appropriate designs can be delivered to speific devices
+
+Introducing Media Queries
+
+    Media Queries - Used to associate a style sheet or style rule with a specific device or list of device features
+    
+    To create a media query within an HTML file, add the following media attribute to either the link or style element in the document head
+        media="devices"
+            Where devices is a comma-separated list of supported media types associated with a specified style sheet
+    
+    Device types:
+        All - All output devices (default)
+        braille - Braille tactile feedbck devices
+        Embossed - paged braille printers
+        Handheld - Mobile devices with small screens and limited mandwidth
+        Print - printers
+        Projections - Projectors
+        Screen - Computer screens
+        Speech - Speech and sound synthesizers, and aural browsers
+        tty - fixed width devices such as teletype machines and terminals
+        tv - television type devices with low resolution, color, and limited scrollability
+
+The @media Rule
+
+    Media Queries can be used to assiciate speific style rules with specific devies using the following
+        @media tty{
+            body{font: 100;}
+        }
+    Where devices are supported by media types and style rules are the syle rules associated with those devices
+
+Media Queries and Device features
+
+    To target a device base d on its features, add the feaure and its value to the media attribute using the syntax in HTML:
+        media="all/not and/or (feature:value);
+            Where feature is the name of a media feature and value is the feature's value
+            The and and or keywoard are used to create media queries that involve different devices or combinations of both
+
+    Aspect-ratio - THe ratio of the width of the display area relative to its height
+    Color - The number of bits per color component of the output device; if the device does not support color, the value is 0
+    color-index - THe number of colors supported by the output device
+    device-aspect-ratio - the ratio of the device-width relative to the device-height
+    device-height - THe height of the rendering surface of the output device
+    device-width - THe width of the renderingsurface of the output device
+    Monochrome - the number of bits per pixel in the device's monochrome frame buffer
+    Orientation - The general description of the aspect ratio: equal to portrait when the height of the display is greater than the width and equal to landscape otherwise
+    Resolution - THe resolution of the output device is pixels, expressed in either dpi(dots per inch) or dpcm(centimeters)
+    width - THe width of the display area of the output device
+
+Applying Media Queries to a style sheet
+
+    THe mobile first principle is one in which the overall page design starts with a base style rules specific to mobile devices
+    Tablet styles are applied when the screen width is 481px or greater
+    Desktop styles build upon the table styles when the screen exceeds 768px
+
+Exploring Viewports and Device width
+
+    Web pages are viewed within a window called the Viewport
+
+    Mobile devices have two types of view ports:
+        Visual viewport - displays the webpage content that fits within a mobile screen
+        Layout viewport - Contains the entire content of the page, some of which may be hidden from the user
+
+Creating a pulldown Menu with CSS
+
+    The following selector can be used to select the submenu that is immediately preceded by a hovered submenu title:
+        a.submenuTitle:hover+ul.submenu
+
+    In order to always keep the submenu visible as the pointer moves away from the title and hovers over the now-visible submenu, use the following:
+        a.submenuTitle:hover+ul.submenu, ul.submenu:hover
