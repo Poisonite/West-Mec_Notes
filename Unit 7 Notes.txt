@@ -64,20 +64,20 @@ Media Queries and Device features
             Where feature is the name of a media feature and value is the feature's value
             The and and or keywoard are used to create media queries that involve different devices or combinations of both
 
-    Aspect-ratio - THe ratio of the width of the display area relative to its height
+    Aspect-ratio - The ratio of the width of the display area relative to its height
     Color - The number of bits per color component of the output device; if the device does not support color, the value is 0
-    color-index - THe number of colors supported by the output device
+    color-index - The number of colors supported by the output device
     device-aspect-ratio - the ratio of the device-width relative to the device-height
-    device-height - THe height of the rendering surface of the output device
-    device-width - THe width of the renderingsurface of the output device
+    device-height - The height of the rendering surface of the output device
+    device-width - The width of the renderingsurface of the output device
     Monochrome - the number of bits per pixel in the device's monochrome frame buffer
     Orientation - The general description of the aspect ratio: equal to portrait when the height of the display is greater than the width and equal to landscape otherwise
-    Resolution - THe resolution of the output device is pixels, expressed in either dpi(dots per inch) or dpcm(centimeters)
-    width - THe width of the display area of the output device
+    Resolution - The resolution of the output device is pixels, expressed in either dpi(dots per inch) or dpcm(centimeters)
+    width - The width of the display area of the output device
 
 Applying Media Queries to a style sheet
 
-    THe mobile first principle is one in which the overall page design starts with a base style rules specific to mobile devices
+    The mobile first principle is one in which the overall page design starts with a base style rules specific to mobile devices
     Tablet styles are applied when the screen width is 481px or greater
     Desktop styles build upon the table styles when the screen exceeds 768px
 
@@ -96,3 +96,145 @@ Creating a pulldown Menu with CSS
 
     In order to always keep the submenu visible as the pointer moves away from the title and hovers over the now-visible submenu, use the following:
         a.submenuTitle:hover+ul.submenu, ul.submenu:hover
+
+Defining a Flexibe Box
+
+    A flexible box of flexbox is a box containing items whose size can shrink or grow to match the boundaries of the box
+    Items within a flexbox are laid out along a main axis
+    The main axis can point in either the horizontal or vertical directions
+    Cross Axis is perpendicular to the main axis and is used to define the height or width of each item
+
+    To define an element as a flexbox, apply either of the following display styles:
+        display: flex;
+        display: inline-flex;
+            Where a value of flex starts the flexbox on a new line and a value of inline-flex keeps the flexbox in-line with its surrounding Content
+
+Setting the Flexbox flow
+
+    By default, flexbox items are arranged horizontally starting from the left and moving to the right
+    The Orientation ofa flexbox can be changed using:
+        flex-direction: direction;
+            where direction is row(default), column, row-reverse, or comumn-reverse
+    The row option in a flex-direction lays out the flex items from left to right
+    The comumn options creates a vertical layout starting from top moving down
+    The row-reverse and comumn-reverse options layout the items bottom to top and right to left respectively
+
+    Flex items try to fit within a single line, either horizontally or vertically
+    Flex items can wrap to a new line using the following property:
+        flex-wrap: type;
+            Where type is either: nowrap(default) or wrap (wrapts the flex items to a new line)
+
+Setting the Flex Basis
+
+    The flex items are determined by three properties:
+        The base size
+        The growth value
+        The shrink value
+
+    The basis size defines the inital size of the tiem before the browser attempts to fit it to the flexbox
+
+    The bais size is set using the following:
+        flex-basis: valueUnits;
+            Where size is one of the CSS units of measurement, which sets the inital size of the flex item
+    
+Define the Flex growth
+
+    The rate at which a flex item grows from its basis size is determined by the flex-grow property
+        flex-grow: value;
+            Where value is a non-negative value that expresses the growth of the flex item relative to the growth of other items in the flex box
+                The default flex-grow value is 0, which is equlivalent to the flex item remaining at its base valueUnits
+
+Define the Shrink rate
+
+    The rate at which flexboxes shrink below their basis size is given by the following property:
+        flex-shrink: value;
+
+    Where value is a non-negative value that expresses the shrink rate of the flex item relative to the shrinkage of the other items of the flexbox
+    The default flex-shrink value is 1
+    If the flex-shrink value is set to 0, then the flex item will not shrink below its basis value
+
+The flex property
+
+    The syntax for the flex property is:
+        flex: grow shrink basis;
+            Where grow defines the growth of the flex item, shrink proviedes its shrink rate, and basis sets the item's inital size
+        Default value:
+            flex: 0 1 auto;
+                Which automatically sets the size of the flex item to match its content of the value of its width and height property
+    
+    THe flex property supports the following keywords:
+        auto - use to automatically resize the item from its defualt size (ewulivalent to flex: 1 1 auto;)
+        inital - THe default value (equlivalent to flex 0 1 auto;)
+        none - Use to create and inflexable item that will not grow or shrink (same as flex: 0 0 auto;)
+        inherit - use to inherit the flex values of its parent element
+
+Reordering Page Content with flexboxes
+
+    The flexbox model allows to place the flex items in any order using the following order property:
+        order: value;
+    
+    Where value is an integer where items with smaller order values are placed before items with larger order values
+
+Aligning items along the main axis
+
+    By defualt, flex items are laid down at the start of the main axis
+    To specify a different placement apply the following justify-content property:
+        justify-content: placement;
+
+Aligning Items Along the Main Axis:
+
+    Where placement is one of the following keywords:
+        Flex-start - Items are places at the start of the main axis (defualt)
+        flex-end - Items are placed at the end of the main axis
+        space-between - Items are distributed evenly with the first and last item aligned with the start and end of the main axis
+        space-around - Items are distributed evenly along the main axis with eqyal space between them and the ends of the flexbox
+
+Aligning Flex Lines:
+
+    The align-content property is simular to the justify-content property except that it arranges multiple lines of content along with flexbox's cross axis
+
+    The syntax of the align-content property is:
+        align-content: value;
+            Where value is any of the same keywords as placement
+
+Aligning items along hte cross axis
+
+    The align-items property aligns each flex item about the cross axis
+    Syntax:
+        align-items: value;
+            Where value is 1 of the keywords:
+                Flex-start - Items are places at the start of the cross axis
+                flex-end - Items are placed at the end of the cross axis
+                center - items are centered along the corss axis
+                stretch - items are stretched to fill up the cross axis (default)
+                baseline - items are positioned so that the baselines of their content align
+    
+    The align-items property is only impactful when there is a single line of flex items
+        Use for single line
+    The align-content property is used to layout the flexbox content for multiple lines of flex items
+        Use for multi-line
+
+    To align a single item out of a line of flex items, use the following align-self property:
+        align-self: center;
+            where value is one of the alignment choices supported by this property (regular flex options)
+
+Creating a Navicon Menu
+
+    Navicon - Used to indicate the presence of hidden navigation menus in mobile webistes
+    The Navicon is a symbol represented as three horizontal lines
+    When a user hovers or touches the navicon the navigation menu is revealed
+
+Designing for printed media
+
+    To apply a print style sheet, the media attribute is used in the link elements to target stylesheets to either screen devices or print devices
+
+Working with the @page rule
+
+    Every printed page in CSS is defined as a page box
+    Page box is composed of two areas:
+        page area - Contains the content of the document
+        margin area - contains the space between the printed content and theedges of the page
+    Styles are applied to the page using:
+        @page{
+            align-self: center;
+        }
