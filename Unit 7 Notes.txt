@@ -162,9 +162,9 @@ The flex property
             flex: 0 1 auto;
                 Which automatically sets the size of the flex item to match its content of the value of its width and height property
     
-    THe flex property supports the following keywords:
+    The flex property supports the following keywords:
         auto - use to automatically resize the item from its defualt size (ewulivalent to flex: 1 1 auto;)
-        inital - THe default value (equlivalent to flex 0 1 auto;)
+        inital - The default value (equlivalent to flex 0 1 auto;)
         none - Use to create and inflexable item that will not grow or shrink (same as flex: 0 0 auto;)
         inherit - use to inherit the flex values of its parent element
 
@@ -238,3 +238,94 @@ Working with the @page rule
         @page{
             align-self: center;
         }
+
+Designing for Printed Media{
+    To apply a print style sheet, the media attribute is used to the link elements to target style sheets to either screen devices or print devices
+}
+
+Working with the @page Rule{
+    Every printed page in CSS is defined asa page box
+    Page box is composed of two areas:
+        Page area - Contains the content of the document
+        Margin area - contains the space between the printed content and the edges of the page
+    Styles are applied to the page box using:
+    @page{
+        align-self: center;
+    }
+}
+
+Setting the Page Size{
+    The following size property allows web authors to define the dimensions of a printed page:
+        size: width height;
+            Where width and height are the width and height of the page
+    The keyword auto allows prowsers to determine the page dimensions
+    The keyword inherit inherits the page size from the parent element
+}
+
+Using the Page Pseudo-classes{
+    Different styles can be defined for different pages by adding the following:
+        @page:pseudo-class{
+            style: rules;
+        }
+            Where pseudo-class is first for the first page of the print out, left for the pages that appear on the left in the double-sided printouts, or right for pages that appear on the right in double-sided printouts
+                EX: :first, :left, right
+}
+
+Page Names ant the Page property{
+    To define styles for pages other than the first, left, or right, create a page name as follows:
+        @page name{
+            style: rules;
+        }
+            Where name is the label given to the page
+    
+    To assign a page name to an element use:
+        selector{
+            page: name;
+        }
+            Where selector identifies the element that will be displayed on its own, and name is the name of a previously defined page style
+}
+
+Formatting Hypertext Links for Printing{
+    To append the text of a link's URL to the linked text, apply the following style rule:
+        a::after{
+            content: " (" attr(href)")";
+        }
+            This style rule uses the after pseudo-element to add the URL for a hyperlink directly after the hyperlink for print purposes (or any purpose)
+
+    THe word-wrap property is used to break long text strings at arbitary points if it extends beyond the boundaries of its container
+}
+
+Working with page breaks{
+    Page breaks can be inserted either directly before or after an element, using the following properties:
+        page-break-before: type;
+        page-break-after: type;
+            Where type has the following possible values:
+                always - use to always place a page break before or after the element
+                avoid - use to never palce a page break
+                left - Use the place a page break where the next page will be a left page
+                right - Use to plae a page break where the next page will be a right page
+                auto - Use to allow the printer to determine whether or not to insert a page break
+                inherit - Use to insert the page break style from the parent element
+}
+
+Preventing Page Breaks{
+    Page breaks can be prevented by using the keyword avoid in the page-break-after or page-break-before properties
+    For example, the following style rule prevents page breaks from being added after any heading:
+        h1, h2, h3, h4, h5, h6{
+            page-break-after: avoid;
+        }
+}
+
+Working with Wiows and Orphans{
+    Page breaks within block elements, such as paragraphs, often leave behing widows and Orphans
+    A widow is a fragment of text left dangling at the top of a page
+    An orpan is a text fragment left at the bottom of a page
+
+    To control the size of widows and orphans, CSS supports the following properties:
+        widows: value;
+        orphans: value;
+            Where value is the number of lines that must appear within the element before a page break can be inserted by printer
+                EX:
+                    widows: auto;
+                    widows: 2;
+}
