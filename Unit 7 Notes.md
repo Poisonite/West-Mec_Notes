@@ -97,7 +97,7 @@ Creating a pulldown Menu with CSS
     In order to always keep the submenu visible as the pointer moves away from the title and hovers over the now-visible submenu, use the following:
         a.submenuTitle:hover+ul.submenu, ul.submenu:hover
 
-Defining a Flexibe Box
+Defining a Flexible Box
 
     A flexible box of flexbox is a box containing items whose size can shrink or grow to match the boundaries of the box
     Items within a flexbox are laid out along a main axis
