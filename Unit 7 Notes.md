@@ -1,4 +1,4 @@
-Introducing Resonsive Design:
+# Introducing Resonsive Design:
 
     Page content
         Mobile - Content should be short and to the point
@@ -153,7 +153,7 @@ Define the Shrink rate
     The default flex-shrink value is 1
     If the flex-shrink value is set to 0, then the flex item will not shrink below its basis value
 
-The flex property
+# The flex property
 
     The syntax for the flex property is:
         flex: grow shrink basis;
