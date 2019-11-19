@@ -329,3 +329,38 @@ Working with Wiows and Orphans{
                     widows: auto;
                     widows: 2;
 }
+
+#Very Important
+>This is how you go back a folder in html (call item in parent folder)
+>Additionally it works to access a folder inside of the parent folder that isn't the current folder
+
+In order to call reference to a file that is in a folder on a 
+level above the folder the current file is in use: ../
+
+Each "../" will move up 1 folder level
+
+In order to move up 2 folder levels use ../../ and for 3 levels use ../../../ etc...
+
+Ex:
+    Folder tree:
+        Project
+            Html
+                index.html
+                page1.html
+                page2.html
+            CSS
+                reset.css
+                styles.css
+                layouts.css
+            Images
+                Media icons
+                    twitter.png
+                    facebook.png
+                Site backgrounds
+                    frame.png
+                    mainBack.png
+    
+    How to refference reset.css from the code of page1.html:
+        <HTML>
+            <page1.html>
+            <a href="../CSS/reset.css"></a> (../ moves up 1 level and CSS moves down from the parent into the CSS folder)
