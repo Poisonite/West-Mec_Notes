@@ -181,3 +181,99 @@ Apply A table alyout to other HTML elements using the CSS display property{
     display: table-cell;
     display: table-caption;
 }
+
+#Tables and Responsive Design
+
+Tables Do not scale well to mobile devices
+
+Problems faced by users to viewa table in a modile device{
+    Table is too small to read
+    Table doesn't fit the visual viewport
+    Tabl columns are too narrow to read the cell content
+}
+A New layout of table data for mobile screens is required
+
+Several table columns are reduced to two{
+    1 column contains all data lables
+    The 2nd column contains the data for each label
+}
+
+To Create a responsive web table, add the text of the data tables as attributes of all id elements in the table body
+Store data labels using a data attribute
+General format for data attributes{
+    <td data-text="value"></td>
+    Where text is the mae of the data attribute and value is its value
+}
+Data attributes are name specific to the function it's used for
+For example, the following code uses a data attribute named data-label to store the text of the labels associated with the data cell{
+    <td data-label="Date">April 2, 2017</td>
+}
+
+The result is a list of data cells that are aligned as block elements
+Within each block element, the data label is followed by the data cell content
+The goal is to transfom table with multiple columns into two-column layout
+
+#Designing a Column Layout
+
+Column layout emables display of content side-by-side in a page
+Layouts that use float elements or flexboxes differ from column layout
+
+Size of a column is set using the column-count property{
+    article{
+        column-count: 2;
+    }
+    Where value is the number of columns in the layout
+    Browser extensions are included to ensure cross-browser compatibility
+}
+
+#Defining Column Widths and Gaps
+
+Columns are laid out evenly across the width of the parent element by default
+To set the colummn width, use the column-width property{
+    column-width: size;
+    Where size is the minimun width of the column
+    Column width acts like the basis value for items in a flexbox
+}
+
+The column-width and column-count properties are combined to form the shorthand columns property{
+    columns: width count;
+    The default gap between columns is 1em
+}
+To set a different gab size use the column-gap property{
+    column-gap: size;
+    Where size is the width of the gap
+}
+Another way to separate columns is with a graphic dividing line created using the column-rule property{
+    column-rule: border;
+    Where border defines the style of dividing line
+    The bolumn-rule property can be broken into individual properties like column-rule-width, colume-rule-style, and column-rule-color
+}
+
+#Managing Column Breaks
+
+The size of column orphans is controlled using the orphans property{
+    orphans: 2;
+    Where value is the minimum number of lines stranded before a column break
+}
+The size of column widodws is controlled using the widows property{
+    widows: 2;
+    Where value is the minimum numbre of lines placed after a column break
+}
+
+Other properties to define colume breaks{
+    break-before: type;
+    break-after: type;
+    Where type is one of the following{
+        ?
+        ?
+        ?
+    }
+}
+To control placement of column breaks within an element, use the property{
+    break-inside: auto;
+    Where type is auto or avoid
+}
+To span cell columns, use the column-span property{
+    column-span: all;
+    Where span is either none to prevent spanning or all to enable the content to span across all the columns
+}
