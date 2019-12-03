@@ -176,3 +176,145 @@ Organize selection list options by placing them in option groups usng the optgro
         </optgroup>
     </select>
 }
+
+#Creating Option Buttons
+
+Option buttons are also called radio buttons
+
+Unlike selection lists, the optons appear as separate controls in the web form
+They are created with a goup of input elements with a type attribute value of "radio"
+    Radio indicates that only 1 option may be selected
+
+EX{
+    <input name="name" value="value1" type="radio" />
+    <input name="name" value="value2" type="radio" />
+        Where name is the name of the data field and value1, value2, value 3, are fields associated with each option
+        set an option button to be selected as default by adding "checked" to the end of the input element attributes section as an attribute
+}
+
+#Creating a Text Area Box
+
+Text area is created using the textarea element{
+    <textarea name="name"></textarea>
+}
+
+HTML supports the rows and cols attibutes to set the text area size{
+    <textarea rows="value" cols="value"></textarea>
+    Rows attribute specifites the number of lines in the text area box
+    Cols attribute specifies the nymber of characters per line
+}
+
+#Entering Numberic Data
+
+Creatting a spinner control
+    spinner control displays an up or down arrow increase or decrease the feild value by a set amount
+    To create a spinner control, apply the input element using the number data type
+
+#Suggesting options with data lists
+
+Data list: A list of possible data values that a form field can have
+Data lists are defined using the data list element{
+    <datalist id="id">
+    <option value="value" />
+    <option value="value" />
+    </datalist>
+}
+
+#Working with Form Buttons
+
+Form buttons - A type of form control that performs an action
+Actions performed{
+    Run a command from a program linked to the web form
+    Submit the form to a program running on the web server
+    Reset the form fields to their defualt values
+}
+
+#Creating a command Button
+
+Command button - Runs a program that affects the content of a page or the actions of a browser
+Created using the input element with the type attribute set to button{
+    <input value="text" onclick="script" type="Button" />
+        Text is text that appears on the button
+        Script is the name of the program code that's run when the button is clicked by the user
+}
+
+#Creating a submit and reset button
+
+Submit button - submits a form to the server for processing when clicked
+Submit button is created using input elements with the type attribute set to submit and reset respectivly{
+    <input value="text" type="submit" />
+        where text is the strign that appears on the button
+}
+
+#Designing a custom button
+
+The appearance of a command submit and reset button is determined by the browser
+
+for more control over a buttons appearance use the button element{
+    <button type="text">Content</button>
+        Type attribute specifies the button type
+        content are html elements placed within the button
+}
+
+#Validating a web form
+
+Validation - Process of ensuring that a user has supplied valid data
+
+Types of validation:
+    Server-side validation - validation occurs on the web server
+    Client-side validation - validation occurs in the user's browser
+
+#Identifying required values
+
+The first validation text is to vrify if data is supplied for all the required data fields
+
+Add he required attribute to the control to identify the required attribute to the control to identify the required data fields
+
+If a required field is left blank, the browser will not submit the form returning an error message to indicate
+
+#Validating based on data type
+
+A form fails the validation test if the data values entered into a field don't match the field type
+EX{
+    A data field with the number tye will be rejected if nonnumeric data is entered
+}
+
+#Testing for a valid pattern
+
+To test whether a field value follows a valid pattern of characters, test the character string againsnt a regular expression
+
+Regular expression or regex is a concise description of a characer pattern
+
+to validate a text value against a regular expression, add the pattern attribute to the input element
+
+#Defining the Legnth of the field value
+
+THe syntax to define the max legnth attribute is{
+    <input maxlegnth="value" />
+        Max legnth doesn't care if it's a char or a digit
+}
+
+#Applying inline validation
+
+Inline validation - the technique of immediate data validation and reporting of errors
+The focus pseudo-class is used to change the dispaly style of fields that currently contain invalid data
+Focus - the state in which an element has been clicked by the user (making it the active control on the form)
+
+Inline validation types{
+
+    Checked
+    Defualt
+    Enabled
+    Focus
+    Indeterminate
+    In-range
+    Optional
+    Out-of-rrange
+        A field that falls outside the required range
+    Required
+    Valid
+}
+
+#Pseudo-classes for Valid and invalid Data
+
+The Valid and invalid pseudo-clases are used to format controls based on whether their field values pass/fail a validation test
