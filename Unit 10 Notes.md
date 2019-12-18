@@ -104,31 +104,31 @@ Nest severl source elements within a single audio element to proide several vers
     <source src="url2" type="mime=type" />
 </audio>
 
-#Applying styles to the media player
+# Applying styles to the media player
 
 The appearance of a media player is determined by the browser itself
 
 CSS can be applied to set the width of the media player, add borders and drop shadows, and apply filters and transformations to the player's appearance
 
-#Exploring Embedded objects
+# Exploring Embedded objects
 
 Plug-Ins in older browsers are marked using the embed element{
     <embed src="url" type="mime-type" width="value" height="value" />
 }
 
-#Plug-in attributes
+# Plug-in attributes
 
 src, type, height, and width attributes are generic attributes applied to embed elements for any plug-in
 For example, the following embed element adds attributes to dispaly th media player controls and prevvent playback from strting automatically{
     <embed src="CP_overture.mp3" width="250" height="50" controller="yes" autoplay="no" />
 }
 
-#Plug-ins as a fallback option
+# Plug-ins as a fallback option
 
 Add embed elements to the end of the audio element as a last option for a browser which doesn't support HTML5 multimedia elements
     Use of plug-ins has steadily declined since the wide spead adoption of the HTML 5 standard
 
-#Video Formats and Codecs
+# Video Formats and Codecs
 
 A video file contains codecs for the following{
     Audio
@@ -168,7 +168,7 @@ WebM{
     Supported by: Chrome, Firefox, Opera
 }
 
-#Using the HTML5 video element
+# Using the HTML5 video element
 
 Videos are embedded int oa web page using video element{
     <video attributes>
@@ -183,7 +183,7 @@ Poster attribute defines a video's preview image{
         Where URL points to the thumbnail file
 }
 
-#Adding a Text Track to Video
+# Adding a Text Track to Video
 
 Text track that needs to be read or recited to visually impaired users can be added to a media clip
 Audio and video content accessible to all users
@@ -209,7 +209,7 @@ Track "kind" attribute options{
     }
 }
 
-#Making tracks with WebVTT
+# Making tracks with WebVTT
 
 Tracks are stored as simple text files written in web video text tracks or webVTT language
 Format of a webVTT file{
@@ -227,14 +227,14 @@ General form of a cue{
 }
     Where label is the name assigned to the cue, start and stop or some sheit
 
-#Placing Cue Text
+# Placing Cue Text
 
 size and position of a cue text ca nbe set using cue settings directly after the cue's time interval:
 setting1:value1 setting2:value2
     Where setting1, setting2 etc defune the size and position of the cue text and value1, value2, are the setting values
 No space betwen setting name and value
 
-#Cue Attributes in WebVTT
+# Cue Attributes in WebVTT
 
 Align:value
     Sets the horizontal alignment of the text within the cue, where value is start (left-aligned), middle (center-aligned), or end(right-aligned)
@@ -250,3 +250,188 @@ size:value{
 vertical:type{
     Displays the cue text vertically rather than horizontally where type is rl (writing direction is right to left) or lr
 }
+
+# Applying Styles to Track Cues
+
+Cue Pseudo-element to format the appearane of the cues appearing within a media clip{
+    ::cue{
+        styles;
+    }
+}
+Styles for the cue pseudo-element are limited to background, color, font, opacity, outline, text-decoration, text-shadow, visibility, and white-space properties
+
+Format specific cues or text strings within a cue using the fllowing markup tags{
+    <i>Italicized</i>
+    <b>Bold</b>
+    <u>Underlined</u>
+    <span>to mark spans of text</span>
+    <ruby>Mark ruby text(non standard english chars)</ruby>
+    <rt>Mark ruby text(non standard english chars)</rt>
+    WebVTT supports tags that are not part of the HTML library
+    <c>tag is used to mark text strings belonging to a particular class with <c.classname></c> </c>
+    <v>Distinguish between one voice and another with <v name></v> </v>
+}
+
+# Using Third-party Video Players
+
+Object element is used to define browsers with plug-ins{
+    <object>Paramerers</object>
+        Attributes = values passed to object controlling the object's appearance and actions
+}
+Parameters for the object are defined using param element{
+    <param name="name" value="value" />
+        Where name is the name of the parameter and value is the parameter's value
+}
+
+# Exploring the Flash Player???
+{
+    THe most-used plig-in for video playback is Adobe Flash Player embeddedusing the following object element{
+        <object data="url" type="application/x-shockwave-flash" width="value" height></object>
+    }
+}
+
+# Parameters of the flash player
+
+bgcolor:color
+flashvar:text
+id:text
+loop:true|false
+menu:true|false
+name:text
+play:true|false
+quality:low|autolow|autohigh|medium|high|best
+scale:showall|noborder|exactfit
+    Defines how a clip is scaled within a given space, noborder perserves aspect ratio, exact fit does not
+wmode:window|opaque|transparent
+    window opens in seperate window, opaque hides anything behind the background, transparant lets the page background show through transparant sections on the player
+
+# Embedding Videos from
+
+Youtube videos are easy to embed in a web page using YouTube's HTML5 video player
+Click te share button below the YouTube video player to share it
+YouTube providesoptions to post a hypertext link to the video of a multitude of social media sites or to share the link via email
+
+To embed a video within a website click Embed which brings up a preview of the player and the HTML that needs to be added to the web page
+
+General code for an embedded player{
+    <iframe width="value" height="value" src="url" frameborder="0" allowfullscreen></iframe>
+        Where the url provides the link to the YouTube Video
+        Width and height attributes define the dimensions of the player embedded on a web page
+        Frameborder attribute sets the width of the border around the player in pixels
+        Allowfullscreen attribute allows the user to play the video in full screen mode
+}
+
+iframe element - Used to mark inline frames (video)
+
+inline frames -  windows embedded within a web page that display that content
+
+# HTML5 Video Players
+
+Works within a browser with css and Javascript files
+
+Presents customizable player that can be adapted to the needs of business or organization
+
+HTML5 video players{
+    JWPlayer (jwplayer.com)
+    Video.js (videojs.com)
+    Media Element.js (mediaelementjs.com)
+    Projekktor (projekktor.com)
+    Flowplayer/Flash Player (flowplayer.org)
+}
+
+# Introducing Transitions
+
+Transition: change in object's style from inital state to ending state (possible keyframes in between)
+Slows down change from 1 color to another so changes feel smoother and less abrupt
+
+Create transitions with the following style{
+    transition: property duration;
+        Where property is a property of the object that changes betwen the inital and end states
+        and where Duration is the transition time in seconds or milliseconds
+}
+Varying speed of transition is defuned using{
+
+    where timing-function is one of the following keywords
+        ease: (default) transition occurs more rapidly at the beginning and slows down at the end
+}
+
+Ease-in
+Ease-out
+Ease-in-out
+Linear
+
+# setting the transition timing
+
+Timing function can be visualized as a graph
+Shows progress of transition vs. duration
+Graphical repersentation of the timing finction is the basis of another measuer of transition timing using{
+    transition: cubic-bezier(n, n, n, n);
+        Where n parameter values define the sape of the timing curve
+}
+
+# Delaying a Transition
+
+Transition does not need to start immediately after the event that triggers it
+Start of the transition can be delayed by adding delay value to the following{
+    transition property duration timing-function delay;
+        where delay is measured in seconds or milliseconds
+}
+
+# Creating a Hover Transition
+
+Limitations of a transition{
+    Can only be run when a CSS property is being changed, like during a hover event
+    It's run once and then can't be looped for repetition
+    Inital and end states of the transition can be defined but not the styles of intermediate states
+}
+Annimation is done to overcome these limitations
+
+# Animating Objects with CSS
+
+Key frame - Sequence of changing images to create illusive movement for animation
+CSS replaces the concept of key frames images with key frame styles that are applied in rapid succession to a page object @keyframes rule{
+    @keyframes name{
+        keyframe1 {styles;}
+        keyframe2 {styles;}
+    }
+}
+
+Name provides the name or title f the animated sequence
+Keyframe 1, 2 etc defines the progress of individual key frames that are expressed as persentages or with keywords from and to
+Styles are styyles applied within each keyframe
+
+# Applying an Animation
+
+Key frames animating is applied to an object using animation-name and animation-duration properties{
+    animation-name: keyframes;
+    animation-duration: times;
+        Where keyframes is a comma-separated list of animatons applied to the object the names from the @keyframes rule an times are the legnths of each animation expressed in seconds or milliseconds
+}
+
+# Animation Properties
+
+animation-name = keyframes
+animation-duration = time
+    Default = 0s
+animation-timing-function = ease|ease-in|ease-out|ease-in-out|linear|cubic-bezier(n,n,n,n)
+    Defines default timing between key frames in the animation (default = ease)
+animation-delay = time
+    deafult = 0s
+animation-iteration-count = value|infinite
+    Specifies the number of times the animation is played, default = 1
+animation-play-state = running|paused
+    Default = running
+animation-direction = normal|reverse|alternate|alternate-reverse
+    Defines the direction of the animation where normal follows the @keyframes rule, reverse reverses the order, alternate plays the animation in normal order followed by the reverse direction, alternate-reverse plays the animation in reverse direction first and then normal
+animation-fill-mode = none|backwards|forwards|both
+    Defines what styles from the animation are applied to the object outside the time it is running where none does not apply any styles, backwards applies the styles from the first keyframe, fowards applies the styles from the last keyframe, both applies styles in both directions (default is none)
+
+# controlling an Animation
+
+Animation can have two states of operation - play or pause
+Check box can be used to control animation
+
+Checkboxes can be replaced with more attractive icons
+    Can be a reload symble
+    Can be a hand to stop
+    The two symbols have the Unicode values \21bb and \270b, respecively
