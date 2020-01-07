@@ -119,3 +119,84 @@
     document.plugins
     document.scripts
     document.styleSheets
+
+# Referencing an Object by ID and Name
+
+* An efficient approach to reference an element is to use its id attribute using the expression
+    document.getElementById(id);
+        where "id" is the value of id attribute
+
+# Changing properties and applying methods
+
+* Object Properties
+    Object property is accessed using:
+        object.property;
+            Where object is a reference to an object and property is a property associated with that object
+            Read-only properties can't be modified
+
+* Applying a Method
+    Object can be modified using methods
+    Methods are applied using the expression:
+        object.method(values);
+            Wherer object is a reference to an object, method is the name of the method applied to the object, and values is a comma-separated list of values associated with the method.
+
+# Writing HTML Code
+
+* HTML code stored within a page element is referenced using:
+    element.innerHTML()
+        Where element is an object reference to an element within a web document
+* Example:
+    document.getElementById("dateNow").innerHTML = m/d/y<br/>h:m:s")
+
+* Elements:
+    element.innerHTML
+        returns the html code within element
+    element.outerHTML
+        returns the html code within element as well as the html code of element itself
+    element.textContent
+    element.insertAdjacentHTML(position text)
+        inserts HTML code defined bt text into element at position, where position is one of the following: 'beforeBegin' (before the element's opening tag), 'afterBegin' (right after the element's opening tag), 'beforeEnd' (just before the element's closing tag), 'afterEnd' (after the element's closing tag).
+
+# Working with Variables
+
+* Variable: named item in a program that stores a data value
+
+* Declaring a variable
+    Introducing into a script by declaring the variable using the var keyword:
+        var variable = value;
+            where variable is the name given to the variable and value is the value of the variable prior to any later modifications
+
+* Conditions to assign variable names in JS
+    First char must be either a lette ror an underscore char (no numbers)
+    The chars after the first char can be letters numbers or underscores
+    No spaces
+    No names that are already declared in JS
+
+# Variables and Data Types
+
+* Data type: type of info stored in a variable
+
+*Supported data types:
+    Numeric value
+        Any number
+    Text string
+        Group of characters enclosed in double or single quotes
+    Boolean value
+        Indicates whether the statement is true or false
+    Object
+        Simplifies code by removing the need to rewrite complicated object references
+    Null Value
+        Indicates that no value has yet ben assigned to a variale
+
+# Working with Date + Time objects
+
+* Date objects: Built-in JavaScript object used to store info about dates and times
+
+* All possibilities to call: (some missing)
+ahhhhhh
+# Setting date and time values
+
+* date.setDate(value)
+* date.setFullYear(value)
+* date.setHours(value)
+* date.setMilliseconds(value)
