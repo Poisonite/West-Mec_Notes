@@ -200,3 +200,87 @@ ahhhhhh
 * date.setFullYear(value)
 * date.setHours(value)
 * date.setMilliseconds(value)
+
+# Working with Operators and Operands
+
+* Operator: symbol used to act upon an item or a variable within an expression
+* Operands: variablles or expressions that operators act upon
+
+* Types of operators:
+    binary operators - requires two operands in an expression
+    Unary operators - Require only one operand
+        Increment operator(++) - increases the value by 1
+        Decremental operator(--) - decreases the value by 1
+
+# Using Assignment Operators
+
+* Assignment Operator: Assigns a value to an item
+    =   --Equlivent--  x=y  --Equlivent--   x=y
+    +=  --Equlivent-- x+=y  --Equlivent-- x=x+y
+    -=  --Equlivent-- x-=y  --Equlivent-- x=x-y
+    *=  --Equlivent-- x*=y  --Equlivent-- x=x*y
+    /=  --Equlivent-- x/=y  --Equlivent-- x=x/y
+    %=  --Equlivent-- x%=y  --Equlivent-- x=x%y
+
+# Working with the Math Object
+
+* Math Object - Built-in object used to perform mathematical tasks and store mathematical values
+* Syntax to apply math method:
+    Math.method(expression);
+    Math.abs(x)
+        Retirns absolute value
+    Math.ceil(x)
+        Rounds x up to the next highest integer
+    Math.exp(x)
+        Raises e to the power of x
+    Math.Floor(x)
+        Rounds x down to the next lower integer
+    Math.log(x)
+        Returns the natural logarithm of x
+    Math.max(x)
+        Returns the larger of x and y
+    Math.min(x,y)
+        Returns the smaller of x and y
+    Math.pow(x,y)
+        Returns x raised to the power of y
+    Math.rand()
+        Returns a random number between 0 and 1
+    Math.round(x)
+        Rounds x to the nearest integer
+    Math.sqrt(x)
+        Returns the square root of x
+
+# Using Math Constants
+
+* Math functions refer to built-in constants stored in the JS Math object
+* Syntax to access mathematical constants is:
+    Math.CONSTANT
+* List of constants
+    Math.E
+    Math.LN10
+    Math.LN2
+    Math.LOG10E
+    Math.LOG2E
+    Math.PI
+    Math.SQRT1_2
+    Math.SQRT2
+
+# Working with JS Functions
+
+* Function: Collection of commands that performs an action or returns a value
+* A function name identifies a function and a set of commands that are run when the function is called
+* Parameters: variables assiciated with the function
+
+* General Syntax of a JS function:
+    function function name(parameters){
+        commands
+    }
+        Where parameters is a comma-seperated list of variables used in the function
+        And where commands is the set of statements run by the function
+
+* Functions Return Values Using Return Statements:
+    function function name(parameters){
+        Commands;
+        return value;
+    }
+        Where value is the calculated value that is returned by the function
