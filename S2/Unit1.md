@@ -284,3 +284,71 @@ ahhhhhh
         return value;
     }
         Where value is the calculated value that is returned by the function
+
+# Running Timed Commands
+
+* Methods to update the current and the remaining time constantly
+* types of timed commands
+    Time-delayed commands
+    Timed-interval commands
+
+* Working with time-delayed commands
+    Time-dalyed commands: JS commands run after a specified amount of time has passed
+    Time delay is defined using:
+    setTimeout("command()", delay);
+        Where command is a JS command and delay is the dealy time in milliseconds before a browser runs the command
+
+# Running Commands at a specified intervls
+
+* The timed-interval command instructs browsers to run a command repeatedly at a specified interval
+* Timed-interval commands are applied using SetInterval() method:
+    - setInterval("command", interval);
+        Where interval is the interval in milliseconds before the command is run again
+
+# Controlling How JS Works with Numberic Values
+
+* Handling Illegal Operations
+    * Mathematical operations can return results that are not numberic values
+    * JS returns NaN if an operations doesn't involve purely numbers
+
+* Is NaN() function returns a Boolean value of true is the value is not numeric and falce is otherwise
+* Infinity value is generated for an operation whose result is less than the smallest numberic value and greater than the largest numberic value supported by JS
+
+# Defining a Number Format
+
+* JS stores a numeric value to 16 decimal places of accuracy
+* The number of digits displayed by browsers is controlle using toFixed() method
+    - value.toFixed(n);
+        Where value is the valoe or variable and n is the number of decimal places displayed in the output
+* toFixed() limits the nubmer of decimals displayed by a value and converts the value to a text string
+* toFixed() rounds the last digit in an expression rather than truncating it
+
+# Converting between Numbers and Text
+
+* "+" operator adds a text string to a number
+* Ex:
+    - var testNumber = 123;
+    - var testStr = testNumber + "";
+        Where + operator concatenates a numeric value with an empty text string reulting in a text string
+    
+* parseInt() function extracts the leading integer value from a text string
+    - It returns the integer value from the text string by discarding any non-integer characters
+    - Ex:
+        parseInt("120.88 lbs:); //returns 120
+        parseInt("weight equals 120 lbs"); //returns NaN
+
+* Types of conversion:
+    - isFinite(value)
+        Indicates whether value is finite and a real number
+    - isNaN(value)
+        Indicates whether value is a number
+    - parseFloat(string)
+        Extracts the first numberic value from the text string
+    - parseInt(string)
+        Extracts the first integer value from the text string
+    - value.toExponential(n)
+        Returns a text string dispalying value in exponential notation with n digits to th right of the decimal point
+    - value.toFixed(n)
+        Returns a text string dispalying value to n decimal places
+    - value.toPrecision(n)
+        Returns a text string dispalying value to n significant digits either to the left or right of the decimal point
