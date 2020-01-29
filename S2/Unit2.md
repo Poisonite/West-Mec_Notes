@@ -166,3 +166,129 @@
                 - where continue is a boolean expression that must be true for the loopto continue
                 - where update is an expression that indicates how the value of the counter var should change each time through the loop
                 - where commands is any command that should run each loop cycle
+
+# exploring the while loop
+* while loop: command block that is run as long as a specific condition is met
+* condition in a while loop does not depend on the value of a counter variable
+* general cyntax for a while loop:
+    + while(bool === true) {commands}
+
+# exploring the do/while loop
+* do/while loop: generally used when the program loop should run at least once before testing the stopping condition
+* tests the condition to continue the loop right after the latest command block is run
+* structure of the do/while loop:
+    + do{
+        commands
+    } while (bool === true);
+
+# comparison and logical operators
+* comparison operator: compares the value of one expression to another, returning a boolean value indicating whether the comparison is true or false
+
++ ==
+    - tests whether x is equal in value to y
++ ===
+    - tests whether x is equal in value and type to y
+
++ !=
+    - tests whether x is not equal to y
+
++ >,>=,<, <=
+    - tests x is greater, less, or equal to y
+
+* logical operators allow several expressions to be connected
+
++ && meands and
++ || means or
++ ! means not
+
+# program loops and arrays:
+* program loops: cycle through different values contained within an array
+* general structure to access each value from an array using a for loop
+    + for (var i = 0; i < array.length; i++) {
+        commands involving array[i];
+    }
+
+# array methods to loop through arrays
+* JS supports several methods to loop though the contents of an array without having to create a program loop structure
+* each of these methods is based on calling a function that will be applied to each item in the array
+
+* general syntax:
+    + array.method(callback[thisArg])
+        - where callback is the name of the function that will be applied to each array item
+        - thisArg: A callback to optional arguments that can be included to passa value to the function
+* General syntax of the call back function:
+    + function callback(value[index/array]){commands}
+        - where value is the value of the array item during each pass through the array
+        - where index is the numberic index of the current array item
+        - where array is the name of the array
+        - only the value parameter is required, the rest are optional
+
+# running a function for each array item
+* forEach() method: runs a function for each item in the array
+* general syntax:
+    + array.forEach { notes not completed!!}
+
+# mapping an array
+* map() method: the function called returns a value that can be used to map the contents of an existing array into a new array
+    - var x = [3,8,12]
+        var y = x.map(doubleIt);
+        function doubleIt(value){
+            return 2*value;
+        }
+
+# filtering an array
+* filter() method: extracts array items that match some specified condition
+    + array.filter(callback[arg])
+        - where callback is a function that returned a boolean value of true or false or each item in the array
+        - array items that return a value of true are copied into the new array
+
+* every() method: returns true if every item in the array matched the condition specified by the callback function, otherwise returns false
+* some() method: returns true if some array items match a conditio nspecified in the function and otherwise returns false if none of the items match the condition
+
++ reduce(callback[arg])
+    - reduces array by keeping only those items that return a value of true from the callback function
++ reduceRight(callback[arg])
+    - reduces array from the last element moving left by keeping only those items that return a value of true from the callback function
+
++ find(callback[arg])
+    - returns the value of the first element in the array that passes a test in the callback function
++ findIndex(callback[arg])
+    - returns the index of the first tlement in the array that pases a test in the callback function
+
+# introducing conditional statements
+* parallel array:
+    - each entry in the array matches or is parallel to an entry in the other array
+* conditional statement
+    - runs a command or command block only when certain circumstances are met
+
+# exploring the if statement
+* the most common conditional statement is the if statement
+* general structue of the if statement:
+    + if(bool === true){commands}
+
+* conditional statement uses the same comparison and logical operators that are used with program loops
+* modulus operator: %
+    - returns the integer remainder after dividing 1 interger by another
+
+* if else statement: chooses between alternate command blocks
+    - runs 1 command block if the conditional expression is true and a different command block if the expression is false
+* general structure:
+    + if(bool === true){commands if true} else{commands if false}
+
+# exploring the break command
+* break statement: terminates any program loop or conditinal statement
+* used anywhere within the program code
+* when a break statement is encountered, control is passed to the statement immediately following it
+* it is most often used to exit a program loop before the stopping condition is met
+
+# exploring the continue command
+* continue statement:
+    - stops processing the commands in the current iteration of the loop and continues on to the net iteration
+    - it is used to jump out of the current iteration if a missing or null value is encountered
+
+# exploring statement labels
+* statement label:
+    - identifies statements in JS code so they can be used elesewhere in the program
+    - syntax of label
+        + label: statements
+            - where label is the text of the label and steatements are the statements identified by the label
