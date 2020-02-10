@@ -140,5 +140,159 @@
     - used to monitor values and trace program execution
 * breakpoint
     - statement where execution enters break mode
-* when program paused at a breapoint
+* when program paused at a breakpoint
     - use debug tools to trace program execution
+
+# Clearing Breakpoints
+* To clear a breakpoint
+    - Clear the line number again
+
+* To clear ALL breakpoints
+    - Right-click any breakpoints
+    - Click "Remove all breakpoints" or "Delete all"
+
+# Stepping through your scripts
+
+* Stepping into
+    - Executiong an individual line of code
+        - pauses until instructed to continue
+    - debugger stops at each line within every function
+* Stepping over
+    - Allows skipping of function calls
+    - Program still executes functions stepping over
+* Stepping out
+    - Executes all remaining code in the current function
+    - debugger stops at next statement in the calling function
+
+# Tracing Variables and Expressions
+* Variables list
+    - Displays all local variables within the currently executing function
+    - Shows how different values in the currently executing functuion affects the program execution
+* watch list
+    - monitors variables and expressions in break mode
+
+# Tracing variables and expressions
+* TO add an expression to the watch list
+    - locate an instance of the epxression in the program
+    - select it and copy it to the clipboard
+    - click "click to add"(IE) or "Add watch expression" (Firefox & Chrome)
+    - Paste expression from clipboard
+    - press enter
+
+# Examining the call stack
+* Call stack
+    - ordered lists of which procedures (functions, methods, event handlers) have been called but haven't finished executing
+* Each time a program calls a procedure it's added to the top of the call stack
+
+# Handling exceptions and errors
+* Bulletproofing
+    - writing code to anticipate and handle potential problems
+    - one technique:
+        - validate submitted form data
+
+* Exception handling
+    - allows programs to handle errors as they occur in program execution
+* exception
+    - error occurring in a program
+
+# Throwing Exceptions
+* Execute code containing an exception in a try statement
+* Throw statement
+    - specifies an error message in case an error that occurs within a try block
+    + try{
+        var lastName = document.getElementById("lName").value;
+        if(lastName === ""){
+            throw "Please enter your last name.";
+        }
+    }
+
+# Catching Exceptions
+* Use a catch statement
+    - handles or "catches" the error
+* catch(error){
+    statements;
+}
++ catch (lNameError) {
+    window.alert(lNameError);
+    return false;
+}
+
+# Executing final exception Handling tasks
+* finally statement
+    - executes regardless of whether its associated try block throws an exception
+    - used to perform some type of cleanup
+        - or any necessary tasks after code evaluated with a try statement
+    + finally {
+        output.innerHTML = "";
+    }
+
+# Implementing custom error handling
+* Primary purpose
+    - prevent users from seeing erros occurring in programs
+    - provide graceful way to handle errors
+* reason for using exception handling with JS
+* programmers may write their own error-handling code
+    - can write user-friendly messages
+    - provides greater control over any errors
+
+* Writing custom error-handling functions
+    - JS interpreter automatically passes three arguments to the custom error handling unction
+        - error message, url, line number
+    - use these values in custom error handling function
+        - add parameters to function definition
+    - use parameters in the function
+         - show a user the location of any JS errors that may occur
+
+# Additional debugging techniques
+
+* includes
+    - checking HTML elements
+        - If a bug cannot be located using methods in this chapter
+            - perform a line by line analysis of the HTML code
+            - ensure all nessessary opening and locating tags included
+        - use code editor specialized for web development
+            - highlights syntax error as you type
+        - use the w3c markup validation service to validate a web page
+
+    - analyzing logic
+        - Some JS code erros stem from logic problems
+            - can be difficult to spot using tracing techniques
+        - analyze each statement on a case-by-case basis
+
+    - testing statements with console command line
+        - Console command line
+            - testing and executing JS statements
+                - without HTML document or JS source file
+            - useful if trying to construct the correct syntax for a mathematical expression
+        - Enter JS statement at cmd line in web browser console
+        - Including multiple statements at the command line
+            - separate statements ith the semicolon
+
+    - using the debugger statement
+        - When you include the debugger statement in your code
+            - web browser stops executing JS code when it reaches the debugger statement statement
+            - equivalent of a breakpoint that's part of the JS code
+
+    - executing code in strict mode
+        - Removes some features from JS
+        - Requires more strict syntax for other features
+            - ex: must always use var to declare vars
+        - man removed or altered features in strict mode are known to cause hard to find bugs
+        - include the statement "use strict:;
+        - include at start of script section that requests strict mode for all code in that section
+        - including at start of code block in function requests strict mode for that function only
+
+    - linting
+        - Running code through a program that flags some common issues tht may affect code quality
+        - JSLint is a commonly used linting program
+        - similar result to using strict mode
+        - this is a great way to check for logical misspellings. it will output a list of variables
+
+    - reloading a web page
+        - Usally click the browser reload or refresh button
+        - web browser cannot alway completely clear its memory
+            - remnants of an old bug may remain
+            - force web page reload
+                - hold shift key and click the browser's refresh button
+        - May need to close browser window completely
+        - may need to delete frequently visited web pages
