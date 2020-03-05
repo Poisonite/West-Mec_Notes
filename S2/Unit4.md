@@ -189,7 +189,7 @@
 * the value associated with a key event property is affected by the event itself
 * for the keypress event, the charCode, keyCode, and which are properties all return a unicode char num
 * modifier keys: akt, ctrl, shift, command keys
-* in addition to char keys JS supports the modifier keys through the use of the altKey, ctrlKey, shiftKey, and metaKey props
+* in addition to char keys JS supports the modifier keys through the use of the altKey, ctrlKey, shiftKey, and metaKey props 
 
 # keyboard events
 
@@ -215,3 +215,77 @@
     - command key on MacOS keyboards and Windows key on MSWindows keyboards
 * evt.which
     - returns unicode char code of the key used in the keypress event or the keycode used in the keydown or keyup events
+
+# Changing the cursor style
+* Cursors can be defined using the following CSS cursor style
+    + cursor: cursorTypes;
+        - where cursorTypes is a comma-separated list of cursor types
+
+* JS command to define cursors is as follows:
+    + object.style.cursor = cursorTypes;
+        - Where object is the page object that will display the cursor style when hovered over by the mouse pointers
+
+* Create a customized cursor from an image file using url(image) where image is an image file
+
+* by default, the click point for a cursor is locate in the top-left corner of the cursor image at the coordinates (0,0)
+* specify a different location by adding the (x,y) coordinates of the click point to the cursor definition as follows:
+    + url(image) x y
+        - where x is the x-coordinate and y is the y-coordinate of the click point in pixels
+
+# Working with functions as objects
+* Everything in JS is an object, including functions
+* anything that can be done with an object can be done with a function, including:
+    - storing a function as var
+    - storing a function as object property
+
+# Working with functions as objects
+* using one function as a parameter in another function
+* nesting one function within another function
+* returning a function as the result on another function
+* modifying the properties of a function
+
+# Function declarations and function Operators
+* the following hello() function is created using the function declaration format
+    + function hello() {
+        alert("Welcome to Hanjie!");
+    }
+* Function operator: the definition of the function becomes the variable's "value"
+    + var hello = function () {
+        alert("Welcome to Hanjie!");
+    }
+
+# Function declarations and function operators
+* The two ways fo defining the hello() function differ in how they are stored
+    - functions defined with a function declaration are created and saved as the browser parses the code prior to script running
+        - since the function is already stored in memory the statements that run the function can be placed prior to the statement that declares the function
+
+* Function operators are evaluated as they appear in the script after parsing
+    - function operators are more flexible than function declarations, allowing a function to be placed anywhere a var can be placed
+
+# Anonymous functions
+* Anonymous functions have function declaration whith out the function name
+* more notes i missed :(
+
+* Functions that are named are called named functions
+* Anonymous functions are more concise and easier to manage because the function is directly included with the expression that invokes it
+* Anonymous functions limit the scope of the function to be exactly where it's needed
+
+# Passing variable values into anonymous functions
+* JS supports two types of variables
+    - global vars: declared outside ant function
+
+* global vars should be avoided when possible because:
+    - global vars are accessible to every function in the application
+    - the task of tracking which functions are using and modifying the global vars becomes
+
+* an advantage of using Anonymous functions is that they reduce the need for global vars because they perform their actions locally within a function
+* one of the challenges of the anonymous functions is keeping track of all of the nested levels of functions and procedures
+
+# displaying dialog boxes
+* JS supports confirmation and prompt dialog boxes
+    + alert(text);
+        - displays a message where you press OS
+    + confirm(text);
+        - displays a message where you can choose to cancel
+    + prompt(text [defaultInput]);
+        - prompt where info can be entered
